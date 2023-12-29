@@ -1,10 +1,10 @@
 <h1>Search Results for "<%= @query %>"</h1>
 
 <% if @meal_data.present? %>
-  <% @meal_data.each do |meal_data| %>
-    <p>Name: <%= meal_data['name'] %></p>
-    <p>Category: <%= meal_data['category'] %></p>
-    <img src="<%= meal_data['photo'] %>" alt="<%= meal_data['name'] %>">
+  <% @meal_data.each do |meal| %>
+    <p>Name: <%= meal[:name] %></p>
+    <p>Category: <%= meal[:category] %></p>
+    <img src="<%= meal[:photo] %>" alt="<%= meal[:name] %>">
   <% end %>
 <% else %>
   <p>No results found.</p>
