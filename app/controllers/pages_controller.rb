@@ -25,17 +25,18 @@ class PagesController < ApplicationController
     data = JSON.parse(response.body)
 
     if data['meals'] && data['meals'].length > 0
-      meal_data = data['meals'][0]
-      {
-        name: meal_data['strMeal'],
-        photo: meal_data['strMealThumb'],
-        category: meal_data['strCategory']
-      }
+      data['meals'].map do |meal_data|
+        {
+          name: meal_data['strMeal'],
+          photo: meal_data['strMealThumb'],
+          category: meal_data['strCategory']
+        }
+      end
     else
-      nil
+      []
     end
   rescue RestClient::ExceptionWithResponse => e
     puts "Error fetching meal data: #{e.response}"
-    nil
+    []
   end
 end
