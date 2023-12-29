@@ -1,4 +1,10 @@
 <div class="navbar-container">
+  <%= form_with(url: search_path, method: "get", local: true) do |form| %>
+    <%= form.text_field :query, placeholder: "Search Recipe" %>
+    <%= form.button type: "submit" do %>
+    <% end %>
+  <% end %>
+
   <%= link_to 'Home', root_path %>
     <% if user_signed_in? %>
       <%= link_to 'About', about_path %>
