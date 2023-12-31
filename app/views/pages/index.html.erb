@@ -1,0 +1,10 @@
+<h2>Latest Recipes</h2>
+
+  <% @meal_data.each do |meal| %>
+    <p>Name: <%= meal[:name] %></p>
+    <p>Category: <%= meal[:category] %></p>
+    <img src="<%= meal[:photo] %>" alt="<%= meal[:name] %>">
+  <% end %>
+
+<h2>Trending Categories</h2>
+<h2>Explore More</h2>
