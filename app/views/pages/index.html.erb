@@ -1,6 +1,6 @@
 <h2>Latest Recipes</h2>
 
-<% @meal_data.each do |meal| %>
+<% @random_recipe_data.shuffle.each do |meal| %>
   <%= link_to recipe_path(meal[:id]) do %>
     <%= image_tag meal[:photo], alt: meal[:name] %>
   <% end %>
@@ -9,4 +9,12 @@
 <% end %>
 
 <h2>Trending Categories</h2>
+
+<% @random_category_data.shuffle.uniq { |meal| [meal[:id], meal[:category]] }.each do |meal| %>
+  <%= link_to recipe_path(meal[:id]) do %>
+    <%= image_tag meal[:photo], alt: meal[:name] %>
+  <% end %>
+  <p><%= meal[:category] %></p>
+<% end %>
+
 <h2>Explore More</h2>
