@@ -2,9 +2,11 @@
 
 <% if @meal_data.present? %>
   <% @meal_data.each do |meal| %>
-    <p>Name: <%= meal[:name] %></p>
-    <p>Category: <%= meal[:category] %></p>
-    <img src="<%= meal[:photo] %>" alt="<%= meal[:name] %>">
+  <%= link_to recipe_path(meal[:id]) do %>
+    <%= image_tag meal[:photo], alt: meal[:name] %>
+  <% end %>
+    <h2><%= meal[:name] %></h2>
+    <p><%= meal[:category] %></p>
   <% end %>
 <% else %>
   <p>No results found.</p>

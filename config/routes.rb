@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/about", to: "pages#about"
   get "/contact", to: "pages#contact"
   get "/search", to: "pages#search", as: "search"
-  get "/recipes/:id", to: "recipes#show"
+  get "/recipes/:id", to: "recipes#show", as: :recipe
   get "/favourites", to: "favourites#show"
   get "/account", to: "accounts#show"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

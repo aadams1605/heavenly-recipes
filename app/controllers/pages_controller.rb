@@ -29,6 +29,7 @@ class PagesController < ApplicationController
     if data['meals'] && data['meals'].length > 0
       data['meals'].map do |meal_data|
         {
+          id: meal_data['idMeal'],
           name: meal_data['strMeal'],
           photo: meal_data['strMealThumb'],
           category: meal_data['strCategory']
@@ -54,6 +55,7 @@ class PagesController < ApplicationController
 
       meal_data += data['meals'].map do |meal_data|
         {
+          id: meal_data['idMeal'],
           name: meal_data['strMeal'],
           photo: meal_data['strMealThumb'],
           category: meal_data['strCategory']
