@@ -8,19 +8,20 @@ class PagesController < ApplicationController
   end
 
   def index
-    @meal_data = fetch_random_meal_data
+    @random_recipe_data = fetch_random_recipe_data
+    @random_category_data = fetch_random_recipe_data
     render 'index'
   end
 
   def search
     @query = params[:query]
-    @meal_data = fetch_search_meal_data(@query)
+    @search_recipe_data = fetch_search_recipe_data(@query)
     render 'search'
   end
 
   private
 
-  def fetch_search_meal_data(user_input)
+  def fetch_search_recipe_data(user_input)
     url = "https://www.themealdb.com/api/json/v1/1/search.php?s=#{user_input}"
 
     response = RestClient.get(url)
@@ -44,7 +45,7 @@ class PagesController < ApplicationController
   end
 
 
-  def fetch_random_meal_data(num_meals = 4)
+  def fetch_random_recipe_data(num_meals = 4)
     url = "https://www.themealdb.com/api/json/v1/1/random.php"
 
     meal_data = []
