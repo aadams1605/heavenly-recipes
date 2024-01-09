@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/recipes/:id", to: "recipes#show", as: :recipe
   get "/favourites", to: "favourites#show"
   get "/account", to: "accounts#show"
+  get "/category/:id", to: "categories#show", as: "category"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
