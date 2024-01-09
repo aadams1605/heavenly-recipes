@@ -10,6 +10,7 @@ class PagesController < ApplicationController
   def index
     @random_recipe_data = fetch_random_recipe_data
     @random_category_data = fetch_random_recipe_data
+    @further_category_data = fetch_further_categories
     render 'index'
   end
 
@@ -64,5 +65,29 @@ class PagesController < ApplicationController
       end
     end
     meal_data
+  end
+
+  def fetch_further_categories(num_categories = 6)
+    url = "https://www.themealdb.com/api/json/v1/1/categories.php"
+
+    all_categories = []
+
+    num_categories.times do
+      response = RestClient.get(url)
+      data = JSON.parse(response.body)
+
+      all_categories += data['categories']
+    end
+
+    unique_categories = all_categories.shuffle.uniq { |category_data| category_data['idCategory'] }
+      .map do |category_data|
+        {
+          id: category_data['idCategory'],
+          photo: category_data['strCategoryThumb'],
+          category: category_data['strCategory']
+        }
+      end
+
+    unique_categories.take(num_categories)
   end
 end
