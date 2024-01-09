@@ -11,7 +11,7 @@
 <h2>Trending Categories</h2>
 
 <% @random_category_data.shuffle.uniq { |meal| [meal[:id], meal[:category]] }.each do |meal| %>
-  <%= link_to recipe_path(meal[:id]) do %>
+  <%= link_to category_path(meal[:id]) do %>
     <%= image_tag meal[:photo], alt: meal[:name] %>
   <% end %>
   <p><%= meal[:category] %></p>
