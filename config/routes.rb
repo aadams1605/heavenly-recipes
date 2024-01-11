@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/contact", to: "pages#contact"
   get "/search", to: "pages#search", as: "search"
   get "/recipes/:id", to: "recipes#show", as: :recipe
+ # get "/recipes/:id/favourite", to: "recipes#show"
   get "/favourites", to: "favourites#show"
   get "/account", to: "accounts#show"
   get "/category/:id", to: "categories#show", as: "category"
