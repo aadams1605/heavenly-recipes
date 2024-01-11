@@ -1,9 +1,12 @@
-<h1>Search Results for "<%= @query %>"</h1>
+<h2>Search Results for "<%= @query %>"</h2>
 
 <% if @search_recipe_data.present? %>
   <% @search_recipe_data.each do |meal| %>
   <%= link_to recipe_path(meal[:id]) do %>
     <%= image_tag meal[:photo], alt: meal[:name] %>
+  <% end %>
+  <%= link_to(favourites_path) do %>
+    <i class="fas fa-heart"></i>
   <% end %>
     <h2><%= meal[:name] %></h2>
     <p><%= meal[:category] %></p>
