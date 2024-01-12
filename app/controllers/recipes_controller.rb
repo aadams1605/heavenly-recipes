@@ -1,14 +1,14 @@
 class RecipesController < ApplicationController
   def show
-    @query = params[:query]
-    @search_recipe_data = fetch_search_recipe_data(@query)
+    @query_id = params[:id]
+    @search_recipe_data = fetch_search_recipe_data(@query_id)
     render 'show'
   end
 
   private
 
-  def fetch_search_recipe_data(user_input)
-    url = "https://www.themealdb.com/api/json/v1/1/search.php?s=#{user_input}"
+  def fetch_search_recipe_data(query_id)
+    url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=#{query_id}"
 
     response = RestClient.get(url)
     data = JSON.parse(response.body)
