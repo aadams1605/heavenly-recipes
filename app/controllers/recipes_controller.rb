@@ -19,7 +19,8 @@ class RecipesController < ApplicationController
           id: meal_data['idMeal'],
           name: meal_data['strMeal'],
           photo: meal_data['strMealThumb'],
-          category: meal_data['strCategory']
+          category: meal_data['strCategory'],
+          instructions: meal_data['strInstructions']
         }
       end
     else

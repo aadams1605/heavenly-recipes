@@ -2,8 +2,9 @@
 
 <% if @search_recipe_data.first %>
   <h1><%= @search_recipe_data.first[:name] %></h1>
-  <p>Category: <%= @search_recipe_data.first[:category] %></p>
   <%= image_tag @search_recipe_data.first[:photo], alt: @search_recipe_data.first[:name] %>
+  <p>Category: <%= @search_recipe_data.first[:category] %></p>
+  <p>Instructions: <%= @search_recipe_data.first[:instructions] %></p>
 <% else %>
   <p>No recipe found.</p>
 <% end %>
