@@ -1,1 +1,8 @@
 <p>Your chosen Category</p>
+
+<% if @category_data %>
+  <%= image_tag @category_data[:photo], alt: @category_data[:category] %>
+  <p>Category: <%= @category_data[:category] %></p>
+<% else %>
+  <p>Category not found</p>
+<% end %>
