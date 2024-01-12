@@ -2,9 +2,8 @@
 
 <% if @search_recipe_data.present? %>
   <% @search_recipe_data.each do |meal| %>
-  <%= link_to recipe_path(meal[:id]) do %>
+  <%= link_to meal[:name], recipe_path(meal[:id]) %>
     <%= image_tag meal[:photo], alt: meal[:name] %>
-  <% end %>
   <%= link_to(favourites_path) do %>
     <i class="fas fa-heart"></i>
   <% end %>
