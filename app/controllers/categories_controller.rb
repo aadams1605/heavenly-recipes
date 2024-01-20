@@ -50,7 +50,7 @@ class CategoriesController < ApplicationController
         category: category_data['strCategory']
       }
     else
-      nil  # Return nil if category with specified ID is not found
+      nil
     end
   end
 

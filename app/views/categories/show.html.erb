@@ -1,8 +1,11 @@
-<p>Your chosen Category</p>
-
 <% if @category_data %>
-  <%= image_tag @category_data[:photo], alt: @category_data[:category] %>
   <p>Category: <%= @category_data[:category] %></p>
-<% else %>
-  <p>Category not found</p>
+  <%= image_tag @category_data[:photo], alt: @category_data[:category], class: 'category-thumbnail' %>
+<% elsif @search_recipe_data %>
+  <% @search_recipe_data.each do |recipe| %>
+    <p>Category: <%= recipe[:category] %></p>
+    <%= image_tag recipe[:photo], alt: recipe[:name] %>
+    <p>Name: <%= recipe[:name] %></p>
+    <p>Instructions: <%= recipe[:instructions] %></p>
+  <% end %>
 <% end %>
