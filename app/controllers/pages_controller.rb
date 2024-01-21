@@ -68,7 +68,7 @@ class PagesController < ApplicationController
   end
 
   def fetch_further_categories(num_categories = 6)
-    url = "https://www.themealdb.com/api/json/v1/1/categories.php"
+    url = "https://www.themealdb.com/api/json/v1/1/random.php"
 
     all_categories = []
 
@@ -76,14 +76,15 @@ class PagesController < ApplicationController
       response = RestClient.get(url)
       data = JSON.parse(response.body)
 
-      all_categories += data['categories']
+      all_categories += data['meals']
     end
 
-    unique_categories = all_categories.shuffle.uniq { |category_data| category_data['idCategory'] }
+    unique_categories = all_categories.shuffle.uniq { |category_data| category_data['idMeal'] }
       .map do |category_data|
         {
-          id: category_data['idCategory'],
-          photo: category_data['strCategoryThumb'],
+          id: category_data['idMeal'],
+          name: category_data['strMeal'],
+          photo: category_data['strMealThumb'],
           category: category_data['strCategory']
         }
       end
