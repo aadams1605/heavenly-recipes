@@ -23,7 +23,7 @@
 <h2>Explore More</h2>
 
 <% @further_category_data.shuffle.uniq { |category| [category[:id], category[:category]] }.each do |category| %>
-  <%= link_to category_show_path(category[:id]) do %>
+  <%= link_to category_show_path(category[:category]) do %>
     <%= image_tag category[:photo], alt: category[:id] %>
   <% end %>
   <p><%= category[:category] %></p>
