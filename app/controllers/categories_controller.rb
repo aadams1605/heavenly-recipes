@@ -1,14 +1,15 @@
 class CategoriesController < ApplicationController
   def show
-    @query_id = params[:id]
-    @search_recipe_data = fetch_search_recipe_data(@query_id)
+    @category = params[:category]
+    @category_data = fetch_category_data(@category)
     render 'show'
   end
 
   private
 
-  def fetch_search_recipe_data(query_id)
-    url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=#{query_id}"
+  def fetch_category_data(query)
+
+    url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=#{query}"
 
     response = RestClient.get(url)
     data = JSON.parse(response.body)
@@ -18,9 +19,7 @@ class CategoriesController < ApplicationController
         {
           id: meal_data['idMeal'],
           name: meal_data['strMeal'],
-          photo: meal_data['strMealThumb'],
-          category: meal_data['strCategory'],
-          instructions: meal_data['strInstructions']
+          photo: meal_data['strMealThumb']
         }
       end
     else

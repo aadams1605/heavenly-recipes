@@ -14,7 +14,7 @@
 <h2>Trending Categories</h2>
 
 <% @random_category_data.shuffle.uniq { |meal| [meal[:id], meal[:category]] }.each do |meal| %>
-  <%= link_to category_path(meal[:id]) do %>
+  <%= link_to category_show_path(meal[:category]) do %>
     <%= image_tag meal[:photo], alt: meal[:name] %>
   <% end %>
   <p><%= meal[:category] %></p>
@@ -23,7 +23,7 @@
 <h2>Explore More</h2>
 
 <% @further_category_data.shuffle.uniq { |category| [category[:id], category[:category]] }.each do |category| %>
-  <%= link_to category_path(category[:id]) do %>
+  <%= link_to category_show_path(category[:id]) do %>
     <%= image_tag category[:photo], alt: category[:id] %>
   <% end %>
   <p><%= category[:category] %></p>
