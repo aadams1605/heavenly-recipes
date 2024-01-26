@@ -1,5 +1,3 @@
-<h2>Your recipe</h2>
-
 <% if @search_recipe_data.first %>
   <h1><%= @search_recipe_data.first[:name] %></h1>
   <%= image_tag @search_recipe_data.first[:photo], alt: @search_recipe_data.first[:name] %>
