@@ -7,13 +7,6 @@ class PagesController < ApplicationController
   def contact
   end
 
-  def index
-    @random_recipe_data = fetch_random_recipe_data
-    @random_category_data = fetch_random_recipe_data
-    @further_category_data = fetch_further_categories
-    render 'index'
-  end
-
   def search
     @query = params[:query]
     @search_recipe_data = fetch_search_recipe_data(@query)

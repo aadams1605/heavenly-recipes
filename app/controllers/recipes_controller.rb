@@ -1,4 +1,8 @@
 class RecipesController < ApplicationController
+  def index
+    @recipes = Recipe.all
+  end
+
   def show
     @query_id = params[:id]
     @search_recipe_data = fetch_search_recipe_data(@query_id)

@@ -1,0 +1,5 @@
+<h1>Your Favourite Recipes</h1>
+
+<% @favourite_recipes.each do |favourite| %>
+  <h1><%= favourite.recipe.title %></h1>
+<% end %>
