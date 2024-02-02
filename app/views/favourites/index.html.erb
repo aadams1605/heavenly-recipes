@@ -1,9 +1,5 @@
 <h1>Your Favourite Recipes</h1>
 
-<% @favourite_recipes.each do |recipe| %>
-  <div class="recipe">
-    <img src="<%= recipe[:photo] %>" alt="<%= recipe[:name] %>">
-    <h3><%= recipe[:name] %></h3>
-    <%= link_to 'Remove from Favourites', remove_from_favourites_path(recipe_id: recipe[:id]), method: :delete %>
-  </div>
+<% @favourite_recipes.each do |favourite| %>
+  <h1><%= favourite.recipe.title %></h1>
 <% end %>

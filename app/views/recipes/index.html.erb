@@ -1,0 +1,16 @@
+<h2>Latest Recipes</h2>
+
+<% @recipes.shuffle.first(4).each do |recipe| %>
+  <%= link_to recipe_path(recipe[:id]) do %>
+    <h1><%= recipe.title %></h1>
+    <img src="<%= recipe.photo_url %>" alt="<%= recipe.title %>">
+  <% end %>
+
+
+  <%= link_to favourite_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
+    <i class="fas fa-heart"></i>
+  <% end %>
+
+  <h2><%= recipe[:name] %></h2>
+  <p><%= recipe[:category] %></p>
+<% end %>

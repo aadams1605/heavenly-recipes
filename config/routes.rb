@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#index"
+  root to: "recipes#index"
+  get "/recipes", to: "recipes#index", as: "recipes"
   get "/about", to: "pages#about"
   get "/contact", to: "pages#contact"
   get "/search", to: "pages#search", as: "search"
