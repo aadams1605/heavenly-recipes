@@ -2,11 +2,13 @@
 
 <% @random_recipe_data.shuffle.each do |meal| %>
   <%= link_to recipe_path(meal[:id]) do %>
-    <%= image_tag meal[:photo], alt: meal[:name] %>
-    <%= link_to(favourites_path) do %>
-      <i class="fas fa-heart"></i>
-    <% end %>
+    <img src="<%= meal[:photo] %>" alt="<%= meal[:name] %>">
   <% end %>
+
+  <%= link_to favourite_create_path(recipe: meal[:id]), data: {turbo_method: :post} do %>
+    <i class="fas fa-heart"></i>
+  <% end %>
+
   <h2><%= meal[:name] %></h2>
   <p><%= meal[:category] %></p>
 <% end %>
