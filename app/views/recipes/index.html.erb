@@ -6,11 +6,21 @@
     <img src="<%= recipe.photo_url %>" alt="<%= recipe.title %>">
   <% end %>
 
-
   <%= link_to favourite_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
     <i class="fas fa-heart"></i>
   <% end %>
+<% end %>
 
-  <h2><%= recipe[:name] %></h2>
-  <p><%= recipe[:category] %></p>
+<h2>Trending Categories</h2>
+
+<% @categories.shuffle.first(4).each do |category| %>
+  <img src="<%= category.photo_url %>">
+  <h1><%= category.title %></h1>
+<% end %>
+
+<h2>Explore More</h2>
+
+<% @categories.shuffle.first(6).each do |category| %>
+  <img src="<%= category.photo_url %>">
+  <h1><%= category.title %></h1>
 <% end %>
