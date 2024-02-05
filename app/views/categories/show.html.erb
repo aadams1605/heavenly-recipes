@@ -1,10 +1,8 @@
-<h2><%= @category.capitalize %> Recipes</h2>
+<h2><%= @category.title.capitalize %> Recipes</h2>
 
-<% if @category_data %>
-  <% @category_data.each do |category| %>
-    <%= link_to recipe_path(category[:id]) do %>
-      <%= image_tag category[:photo], alt: category[:name] %>
-    <% end %>
-    <p>Name: <%= category[:name] %></p>
+<% @recipes.each do |recipe| %>
+  <%= link_to recipe_path(recipe[:id]) do %>
+    <h1><%= recipe.title %></h1>
+    <img src="<%= recipe.photo_url %>" alt="<%= recipe.title %>">
   <% end %>
 <% end %>

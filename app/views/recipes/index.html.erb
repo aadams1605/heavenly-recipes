@@ -1,6 +1,6 @@
 <h2>Latest Recipes</h2>
 
-<% @recipes.shuffle.first(4).each do |recipe| %>
+<% @recipes.each do |recipe| %>
   <%= link_to recipe_path(recipe[:id]) do %>
     <h1><%= recipe.title %></h1>
     <img src="<%= recipe.photo_url %>" alt="<%= recipe.title %>">
@@ -13,14 +13,16 @@
 
 <h2>Trending Categories</h2>
 
-<% @categories.shuffle.first(4).each do |category| %>
-  <img src="<%= category.photo_url %>">
-  <h1><%= category.title %></h1>
+<% @trending_categories.each do |category| %>
+  <%= link_to category_show_path(title: category.title.downcase) do %>
+    <h1><%= category.title %></h1>
+    <img src="<%= category.photo_url %>" alt="<%= category.title %>">
+  <% end %>
 <% end %>
 
 <h2>Explore More</h2>
 
-<% @categories.shuffle.first(6).each do |category| %>
+<% @explore_more.each do |category| %>
   <img src="<%= category.photo_url %>">
   <h1><%= category.title %></h1>
 <% end %>
