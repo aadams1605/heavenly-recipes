@@ -23,6 +23,8 @@
 <h2>Explore More</h2>
 
 <% @explore_more.each do |category| %>
-  <img src="<%= category.photo_url %>">
-  <h1><%= category.title %></h1>
+  <%= link_to category_show_path(title: category.title.downcase) do %>
+    <h1><%= category.title %></h1>
+    <img src="<%= category.photo_url %>" alt="<%= category.title %>">
+  <% end %>
 <% end %>
