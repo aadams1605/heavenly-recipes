@@ -1,7 +1,9 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.all.shuffle.first(4)
     @categories = Category.all
+    @trending_categories = @categories.shuffle.first(4)
+    @explore_more = (Category.all - @trending_categories).shuffle.first(6)
   end
 
   def show

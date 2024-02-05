@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/recipes/:id", to: "recipes#show", as: "recipe"
   get "/favourites", to: "favourites#index", as: "favourites"
   get "/account", to: "accounts#show"
-  get "/category/:category", to: "categories#show", as: "category_show"
+  get "/category/:title", to: "categories#show", as: "category_show"
 
   post "/favourites/create", to: "favourites#create", as: "favourite_create"
 
