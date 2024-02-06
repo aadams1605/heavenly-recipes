@@ -9,6 +9,6 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find_by(title: params[:title].gsub("-"," "))
   end
 end
