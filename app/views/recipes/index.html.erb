@@ -1,7 +1,7 @@
 <h2>Latest Recipes</h2>
 
 <% @recipes.each do |recipe| %>
-  <%= link_to recipe_path(recipe[:id]) do %>
+  <%= link_to recipe_path(recipe[:title].gsub(" ", "-")) do %>
     <h1><%= recipe.title %></h1>
     <img src="<%= recipe.photo_url %>" alt="<%= recipe.title %>">
   <% end %>
