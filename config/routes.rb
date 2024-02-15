@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/recipes", to: "recipes#index", as: "recipes"
   get "/about", to: "pages#about"
   get "/contact", to: "pages#contact"
-  get "/recipes/:title", to: "recipes#show", as: "recipe"
+  get "/recipes/:id", to: "recipes#show", as: "recipe"
   get "/favourites", to: "favourites#index", as: "favourites"
   get "/account", to: "accounts#show"
   get "/category/:title", to: "categories#show", as: "category_show"
