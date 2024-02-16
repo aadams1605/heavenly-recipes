@@ -9,6 +9,9 @@
   <%= link_to favourite_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
     <i class="fas fa-heart"></i>
   <% end %>
+  <%= link_to rating_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
+    <i class="fa-solid fa-star"></i>
+  <% end %>
 <% end %>
 
 <% unless params[:query].present? %>
