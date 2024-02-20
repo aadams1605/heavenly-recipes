@@ -33,14 +33,14 @@ until existing_categories.size == 14 do
         meal_url = "www.themealdb.com/api/json/v1/1/lookup.php?i=#{meal_data['idMeal']}"
         meal_response = RestClient.get(meal_url)
         meal_info = JSON.parse(meal_response.body)['meals'].first
-        recipe = Recipe.create(title: meal_data['strMeal'], instructions: meal_info['strInstructions'], photo_url: meal_data['strMealThumb'], category_id: category.id)
+        Recipe.create(title: meal_data['strMeal'], instructions: meal_info['strInstructions'], photo_url: meal_data['strMealThumb'], category_id: category.id)
 
-        5.times do
-          Rating.create!(
-            recipe_id: recipe.id,
-            value: rand(1..5)
-          )
-        end
+        #5.times do
+         # Rating.create!(
+          #  recipe_id: recipe.id,
+           # value: rand(1..5)
+          #)
+        #end
       end
     end
   end
