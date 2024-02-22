@@ -14,5 +14,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @rating = Rating.create(user_id: current_user.id, recipe_id: params[:id], value: params[:value])
+    @average_rating = @recipe.ratings.average(:value)
   end
 end
