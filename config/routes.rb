@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "recipes#index"
-  get "/recipes", to: "recipes#index", as: "recipes"
+  get "/recipes", to: "recipes#index"
   get "/about", to: "pages#about"
   get "/contact", to: "pages#contact"
   get "/recipes/:id", to: "recipes#show", as: "recipe"
-  get "/favourites", to: "favourites#index", as: "favourites"
-  get "/ratings", to: "ratings#index", as: "ratings"
+  get "/favourites", to: "favourites#index"
+  get "/ratings", to: "ratings#index"
   get "/account", to: "accounts#show"
   get "/category/:title", to: "categories#show", as: "category_show"
 
-  post "/favourites/create", to: "favourites#create", as: "favourite_create"
-  post "/ratings/create", to: "ratings#create", as: "rating_create"
+  post "/favourites/create", to: "favourites#create"
+  post "/ratings/create", to: "ratings#create"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

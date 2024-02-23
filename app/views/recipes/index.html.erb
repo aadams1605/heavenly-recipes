@@ -6,10 +6,10 @@
     <img src="<%= recipe.photo_url %>" alt="<%= recipe.title %>">
   <% end %>
 
-  <%= link_to favourite_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
+  <%= link_to favourites_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
     <i class="fas fa-heart"></i>
   <% end %>
-  <%= link_to rating_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
+  <%= link_to ratings_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
     <i class="fa-solid fa-star"></i>
   <% end %>
 <% end %>

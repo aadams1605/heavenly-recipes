@@ -1,8 +1,30 @@
 <h1><%= @recipe.title %></h1>
 <img src="<%= @recipe.photo_url %>" alt="<%= @recipe.title %>">
 
-<%= link_to favourite_create_path(recipe: @recipe.id), data: {turbo_method: :post} do %>
+<%= link_to favourites_create_path(recipe: @recipe.id), data: {turbo_method: :post} do %>
   <i class="fas fa-heart"></i>
+<% end %>
+
+<% if @average_rating == nil %>
+  <span> (<%= 0 %> / <%= @ratings_count %>) </span>
+<% else %>
+  <span> (<%= @average_rating %> / <%= @ratings_count %>) </span>
+<% end %>
+
+<% if @average_rating %>
+  <p>Your Rating: <%= "⭐️" * ((@average_rating * 2).round / 2.0) %></p>
+<% end %>
+
+<% unless @rating.value.present? %>
+  <% (1..5).each do |i| %>
+    <%= link_to recipe_path(@recipe, value: i), method: :post do %>
+      <% if @recipe.ratings.exists?(user_id: current_user.id) && @recipe.ratings.find_by(user_id: current_user.id).value >= i %>
+        ⭐️
+      <% else %>
+        ☆
+      <% end %>
+    <% end %>
+  <% end %>
 <% end %>
 
 <p>Instructions: <%= @recipe.instructions %></p>
