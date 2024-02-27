@@ -14,7 +14,8 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    @ratings_count = @recipe.ratings.count
+    @current_user_ratings_count = current_user.ratings.where(recipe_id: @recipe.id).count
+    @total_ratings_count = @recipe.ratings.count
     @average_rating = @recipe.ratings.average(:value)
   end
 end
