@@ -1,11 +1,11 @@
 <div class="navbar-container">
-  <p id="logoname">Heavenly Recipes</p>
-  <%= link_to (account_path) do %>
-    <i class="fas fa-user"></i>
-  <% end %>
-  <%= link_to (favourites_path) do %>
-    <i class="fas fa-heart"></i>
-  <% end %>
+  <h1 id="logoname">Heavenly Recipes</h1>
+
+  <div class="navbar-links">
+    <%= link_to 'Home', root_path %>
+    <%= link_to 'About', about_path %>
+    <%= link_to 'Contact', contact_path %>
+  </div>
 
   <%= form_with(url: recipes_path, method: :get, class: "search-form-control form-group") do |form| %>
     <%= form.text_field :query, class: "form-control string required", id: "search_query", placeholder: "Search Recipe" %>
@@ -14,9 +14,16 @@
     <% end %>
   <% end %>
 
-  <%= link_to 'Home', root_path %>
-  <%= link_to 'About', about_path %>
-  <%= link_to 'Contact', contact_path %>
+  <div class="navbar-links">
+    <%= link_to (favourites_path) do %>
+      <i class="fas fa-heart"></i>
+    <% end %>
+
+    <%= link_to (account_path) do %>
+      <i class="fas fa-user"></i>
+    <% end %>
+  </div>
+
   <% if user_signed_in? %>
     <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}%>
   <% else %>
