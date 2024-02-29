@@ -10,7 +10,7 @@
   <%= form_with(url: recipes_path, method: :get, class: "search-form-control form-group") do |form| %>
     <%= form.text_field :query, class: "form-control string required", id: "search_query", placeholder: "Search Recipe" %>
     <%= form.button type: "submit", class: "btn btn-flat" do %>
-      <i class="fas fa-search"></i> Search
+      <i class="fas fa-search"></i>
     <% end %>
   <% end %>
 
