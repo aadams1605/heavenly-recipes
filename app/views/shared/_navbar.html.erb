@@ -2,9 +2,9 @@
   <h1 id="logoname">Heavenly Recipes</h1>
 
   <div class="navbar-links">
-    <%= link_to 'Home', root_path %>
-    <%= link_to 'About', about_path %>
-    <%= link_to 'Contact', contact_path %>
+    <%= link_to 'Home', root_path, class: "nav-link" %>
+    <%= link_to 'About', about_path, class: "nav-link" %>
+    <%= link_to 'Contact', contact_path, class: "nav-link" %>
   </div>
 
   <%= form_with(url: recipes_path, method: :get, class: "search-form-control form-group") do |form| %>
@@ -15,19 +15,37 @@
   <% end %>
 
   <div class="navbar-links">
-    <%= link_to (favourites_path) do %>
-      <i class="fas fa-heart"></i>
-    <% end %>
-
-    <%= link_to (account_path) do %>
-      <i class="fas fa-user"></i>
+    <% if user_signed_in? %>
+      <ul>
+        <li>
+          <a href="<%= favourites_path %>">
+            <i class="fas fa-heart"></i>
+          </a>
+        </li>
+        <li>
+          <a href="<%= account_path %>">
+            <i class="fas fa-user"></i>
+          </a>
+          <ul>
+            <li>
+              <%= link_to "Log-out", destroy_user_session_path, class: "logout-link", data: { turbo_method: :delete } %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    <% else %>
+      <ul>
+        <li>
+          <%= link_to new_user_session_path do %>
+            <i class="fas fa-user"></i> Login
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_user_registration_path do %>
+            <i class="fas fa-user"></i> Sign Up
+          <% end %>
+        </li>
+      </ul>
     <% end %>
   </div>
-
-  <% if user_signed_in? %>
-    <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}%>
-  <% else %>
-    <%= link_to "Login", new_user_session_path %>
-    <%= link_to "Sign Up", new_user_registration_path %>
-  <% end %>
 </div>
