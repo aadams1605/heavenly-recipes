@@ -1,0 +1,27 @@
+.star-buttons-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.star-button {
+  width: auto;
+  height: auto;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.star-button::before {
+  content: "\2605";
+  font-size: 24px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.star-button:hover::before {
+  color: gold;
+}
+
+.star-button:hover ~ .star-button::before {
+  color: gold;
+}
