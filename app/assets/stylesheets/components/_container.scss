@@ -1,6 +1,23 @@
 .container {
   width: 1300px;
   margin: 0 auto;
+ /* border: 2px solid black;*/
+}
+
+.latest-recipes {
+ /* border: 2px solid green;*/
+ display: flex;
+ gap: 15px;
+}
+
+.trending-categories {
+  /*border: 2px solid gold;*/
+  display: flex;
+}
+
+.explore-more {
+  /*border: 2px solid purple;*/
+  display: flex;
 }
 
 /*@media (max-width: 1300px){

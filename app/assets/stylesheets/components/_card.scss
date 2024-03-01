@@ -1,0 +1,37 @@
+.recipe-card {
+  width: 300px;
+  height: 230px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.222);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+  position: relative;
+
+  img{
+    height: 230px;
+    width: 300px;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+    border-radius: 10px;
+    filter: brightness(0.85);
+  }
+
+  .text {
+    padding: 15px;
+    z-index: 2;
+    position: absolute;
+    text-shadow: 2px 2px 10px black;
+    text-align: center;
+  }
+
+  .fas.fa-heart,
+  .fa-solid.fa-star {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
+  }
+}
