@@ -1,26 +1,31 @@
-<h1><%= @recipe.title %></h1>
-<img src="<%= @recipe.photo_url %>" alt="<%= @recipe.title %>">
+  <h1><%= @recipe.title %></h1>
+  <img src="<%= @recipe.photo_url %>" alt="<%= @recipe.title %>">
 
-<%= link_to favourites_create_path(recipe: @recipe.id), data: {turbo_method: :post} do %>
-  <i class="fas fa-heart"></i>
-<% end %>
+  <%= link_to favourites_create_path(recipe: @recipe.id), data: {turbo_method: :post} do %>
+    <i class="fas fa-heart"></i>
+  <% end %>
 
-<% if @average_rating == nil %>
-  <span> (<%= 0 %> / <%= @total_ratings_count %>) </span>
-<% else %>
-  <span> (<%= "%.1f" % @average_rating %> / <%= @total_ratings_count %>) </span>
-<% end %>
+  <% if @average_rating == nil %>
+    <span> (<%= 0 %> / <%= @total_ratings_count %>) </span>
+  <% else %>
+    <span> (<%= "%.1f" % @average_rating %> / <%= @total_ratings_count %>) </span>
+  <% end %>
 
-<% if @average_rating %>
-  <p>Your Rating: <%= "⭐️" * ((@average_rating * 2).round / 2.0) %></p>
-<% end %>
+  <% if @average_rating %>
+    <p>Your Rating: <%= "⭐️" * ((@average_rating * 2).round / 2.0) %></p>
+  <% end %>
 
-<% unless @current_user_ratings_count > 0 %>
-  <div class="star-buttons-container">
-    <% (1..5).each do |value| %>
-      <%= button_to "", { controller: "ratings", action: "create", recipe_id: @recipe.id, value: value }, method: :post, class: "star-button" %>
+  <% unless @current_user_ratings_count > 0 %>
+    <%= form_tag({ controller: "ratings", action: "create", recipe_id: @recipe.id }, method: :post, class: "star-form") do %>
+      <div class="star-buttons-container">
+        <% (1..5).each do |value| %>
+          <%= button_tag type: "submit", class: "star-button", name: "value", value: 6 - value do %>
+            <%= content_tag :i, "", class: "star-icon" %>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
-  </div>
-<% end %>
+  <% end %>
 
-<p>Instructions: <%= @recipe.instructions %></p>
+
+  <p>Instructions: <%= @recipe.instructions %></p>
