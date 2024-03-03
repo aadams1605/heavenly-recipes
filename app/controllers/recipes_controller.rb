@@ -10,6 +10,8 @@ class RecipesController < ApplicationController
       @trending_categories = @categories.shuffle.first(4)
       @explore_more = (Category.all - @trending_categories).shuffle.first(6)
     end
+
+    @no_results = @recipes.empty?
   end
 
   def show
