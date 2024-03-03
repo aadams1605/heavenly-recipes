@@ -2,22 +2,24 @@
   <div class="latest-recipes">
     <h2>Latest Recipes</h2>
     <% @recipes.each do |recipe| %>
-      <%= link_to recipe_path(recipe[:id]) do %>
-        <div class="recipe-card">
+      <div class="recipe-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= recipe.photo_url %>');">
+        <div class="icons">
+          <%= link_to favourites_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
+            <i class="fas fa-heart"></i>
+          <% end %>
+          <%= link_to ratings_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
+            <i class="fa-solid fa-star"></i>
+          <% end %>
+        </div>
+        <%= link_to recipe_path(recipe[:id]) do %>
           <div class="text">
             <h1><%= recipe.title %></h1>
-            <%= link_to favourites_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
-              <i class="fas fa-heart"></i>
-            <% end %>
-            <%= link_to ratings_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
-              <i class="fa-solid fa-star"></i>
-            <% end %>
           </div>
-          <img src="<%= recipe.photo_url %>" alt="<%= recipe.title %>">
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     <% end %>
   </div>
+</div>
 
   <% unless params[:query].present? %>
   <div class="trending-categories">
