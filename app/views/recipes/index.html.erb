@@ -14,7 +14,7 @@
         </div>
         <%= link_to recipe_path(@recipes[0][:id]) do %>
           <div class="text">
-            <h1><%= @recipes[0].title %></h1>
+            <h2><%= @recipes[0].title %></h2>
           </div>
         <% end %>
       </div>
@@ -31,7 +31,7 @@
             </div>
             <%= link_to recipe_path(recipe[:id]) do %>
               <div class="text">
-                <h1><%= recipe.title %></h1>
+                <h2><%= recipe.title %></h2>
               </div>
             <% end %>
           </div>
@@ -45,7 +45,7 @@
       <h2>Trending Categories</h2>
       <% @trending_categories.each do |category| %>
         <%= link_to category_show_path(title: category.title.downcase) do %>
-          <h1><%= category.title %></h1>
+          <h2><%= category.title %></h2>
           <img src="<%= category.photo_url %>" alt="<%= category.title %>">
         <% end %>
       <% end %>
@@ -54,7 +54,7 @@
       <h2>Explore More</h2>
       <% @explore_more.each do |category| %>
         <%= link_to category_show_path(title: category.title.downcase) do %>
-          <h1><%= category.title %></h1>
+          <h2><%= category.title %></h2>
           <img src="<%= category.photo_url %>" alt="<%= category.title %>">
         <% end %>
       <% end %>
