@@ -1,6 +1,8 @@
 <div class="container">
   <div class="latest-recipes">
-    <% if @recipes.present? && @recipes[0].present? %>
+    <% if @no_results %>
+      <p>No Recipes Found</p>
+    <% else %>
       <div class="recipe-card large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @recipes[0].photo_url %>');">
         <div class="icons">
           <%= link_to favourites_create_path(recipe: @recipes[0].id), data: {turbo_method: :post} do %>
@@ -16,14 +18,7 @@
           </div>
         <% end %>
       </div>
-    <% else %>
-      <p>No Recipes Found.</p>
-    <% end %>
-
-    <div class="two-card-recipe">
-      <% if @no_results %>
-        <p>No results found.</p>
-      <% else %>
+      <div class="two-card-recipe">
         <% @recipes[1..2].each do |recipe| %>
           <div class="recipe-card small" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= recipe.photo_url %>');">
             <div class="icons">
@@ -41,31 +36,28 @@
             <% end %>
           </div>
         <% end %>
-        <% if @recipes[1..2].empty? %>
-          <p>No Recipes Found.</p>
+      </div>
+    <% end %>
+  </div>
+
+  <% unless params[:query].present? %>
+    <div class="trending-categories">
+      <h2>Trending Categories</h2>
+      <% @trending_categories.each do |category| %>
+        <%= link_to category_show_path(title: category.title.downcase) do %>
+          <h1><%= category.title %></h1>
+          <img src="<%= category.photo_url %>" alt="<%= category.title %>">
         <% end %>
       <% end %>
     </div>
-  </div>
+    <div class="explore-more">
+      <h2>Explore More</h2>
+      <% @explore_more.each do |category| %>
+        <%= link_to category_show_path(title: category.title.downcase) do %>
+          <h1><%= category.title %></h1>
+          <img src="<%= category.photo_url %>" alt="<%= category.title %>">
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
-
-<% unless params[:query].present? %>
-  <div class="trending-categories">
-    <h2>Trending Categories</h2>
-    <% @trending_categories.each do |category| %>
-      <%= link_to category_show_path(title: category.title.downcase) do %>
-        <h1><%= category.title %></h1>
-        <img src="<%= category.photo_url %>" alt="<%= category.title %>">
-      <% end %>
-    <% end %>
-  </div>
-  <div class="explore-more">
-    <h2>Explore More</h2>
-    <% @explore_more.each do |category| %>
-      <%= link_to category_show_path(title: category.title.downcase) do %>
-        <h1><%= category.title %></h1>
-        <img src="<%= category.photo_url %>" alt="<%= category.title %>">
-      <% end %>
-    <% end %>
-  </div>
-<% end %>
