@@ -59,17 +59,23 @@
       </div>
     <% end %>
   </div>
-</div>
 
   <% unless params[:query].present? %>
-    <div class="trending-categories">
-      <h2>Trending Categories</h2>
-      <% @trending_categories.each do |category| %>
-        <%= link_to category_show_path(title: category.title.downcase) do %>
-          <h2><%= category.title %></h2>
-          <img src="<%= category.photo_url %>" alt="<%= category.title %>">
-        <% end %>
+  <h2 class="trending-header">Trending Categories</h2>
+    <div class="trending-category-buttons">
+      <% @explore_more_buttons.each do |category| %>
+        <button><%= category.title %></button>
       <% end %>
+    </div>
+    <div class="trending-categories">
+      <div class="four-categories">
+        <% @trending_categories.each do |category| %>
+          <%= link_to category_show_path(title: category.title.downcase) do %>
+            <h2><%= category.title %></h2>
+            <img src="<%= category.photo_url %>" alt="<%= category.title %>">
+          <% end %>
+        <% end %>
+      </div>
     </div>
     <div class="explore-more">
       <h2>Explore More</h2>
