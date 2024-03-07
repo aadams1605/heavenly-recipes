@@ -21,13 +21,13 @@
             </div>
             <%= link_to recipe_path(recipe[:id]) do %>
               <div class="text">
-                <h2><%= recipe.title %></h2>
+                <h2><%= recipe.title %> <span class="star-button gold-star"></span></h2>
               </div>
               <div class="rating-info">
                 <% if recipe.ratings.average(:value) == nil %>
-                  <span> (<%= 0 %> / <%= recipe.ratings.count %>) </span>
+                  <span> (N/A) </span>
                 <% else %>
-                  <span> (<%= recipe.ratings.count %> / <%= recipe.ratings.average(:value)%>) </span>
+                  <span> (<%= recipe.ratings.average(:value)%>) </span>
                 <% end %>
               </div>
             <% end %>
