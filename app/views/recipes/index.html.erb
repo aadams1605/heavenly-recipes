@@ -1,7 +1,9 @@
 <div class="container">
-  <div class="search-results-number">
-    <span><%= @recipes.count %> Recipes for "<%= params[:query] %>"</span>
-  </div>
+  <% if params[:query].present? && !@no_results %>
+    <div class="search-results-number">
+      <span><%= @recipes.count %> Recipes for "<%= params[:query] %>"</span>
+    </div>
+  <% end %>
   <div class="latest-recipes">
     <% if @no_results %>
       <p>No Recipes Found</p>
