@@ -5,13 +5,22 @@
   width: 100%;
   flex-wrap: wrap;
   gap: 50px;
+
+  .recipe-card.search {
+    width: 25%;
+    padding: 0px 30px;
+    margin-bottom: 10px;
+    margin-top: 40px;
+  }
+
+  span {
+    color: white;
+    font-weight: bold;
+  }
 }
 
-.recipe-card.search {
-  width: 25%;
-  padding: 0px 30px;
-  margin-bottom: 10px;
-  margin-top: 40px;
+.search-results-number {
+  font-weight: bold;
 }
 /*
 .rating-info {
