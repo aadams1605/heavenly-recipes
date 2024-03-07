@@ -1,11 +1,14 @@
 <div class="container">
+  <div class="search-results-number">
+    <span><%= @recipes.count %> Recipes for "<%= params[:query] %>"</span>
+  </div>
   <div class="latest-recipes">
     <% if @no_results %>
       <p>No Recipes Found</p>
     <% elsif params[:query].present? %>
       <div class="search-results">
         <% @recipes.each do |recipe| %>
-          <div class="recipe-card small" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= recipe.photo_url %>');">
+          <div class="recipe-card small recipe-card search" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= recipe.photo_url %>');">
             <div class="icons">
               <%= link_to favourites_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
                 <i class="fas fa-heart"></i>
@@ -17,6 +20,13 @@
             <%= link_to recipe_path(recipe[:id]) do %>
               <div class="text">
                 <h2><%= recipe.title %></h2>
+              </div>
+              <div class="rating-info">
+                <% if recipe.ratings.average(:value) == nil %>
+                  <span> (<%= 0 %> / <%= recipe.ratings.count %>) </span>
+                <% else %>
+                  <span> (<%= recipe.ratings.count %> / <%= recipe.ratings.average(:value)%>) </span>
+                <% end %>
               </div>
             <% end %>
           </div>
