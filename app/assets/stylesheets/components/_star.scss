@@ -26,3 +26,11 @@
 .star-button:hover ~ .star-button::before {
   color: gold;
 }
+
+.gold-star::before {
+  color: gold;
+}
+
+.gold-star:hover::before {
+  color: gold;
+}
