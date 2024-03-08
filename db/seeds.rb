@@ -33,8 +33,18 @@ until existing_categories.size == 14 do
         meal_url = "www.themealdb.com/api/json/v1/1/lookup.php?i=#{meal_data['idMeal']}"
         meal_response = RestClient.get(meal_url)
         meal_info = JSON.parse(meal_response.body)['meals'].first
-        Recipe.create(title: meal_data['strMeal'], instructions: meal_info['strInstructions'], photo_url: meal_data['strMealThumb'], category_id: category.id)
 
+        ingredients = (1..20).map { |i| meal_data["strIngredient#{i}"] }.compact
+        measures = (1..20).map { |i| meal_data["strMeasure#{i}"] }.compact
+
+        Recipe.create(
+          title: meal_data['strMeal'],
+          instructions: meal_info['strInstructions'],
+          photo_url: meal_data['strMealThumb'],
+          category_id: category.id,
+          ingredients: ingredients,
+          measures: measures
+        )
         #5.times do
          # Rating.create!(
           #  recipe_id: recipe.id,
