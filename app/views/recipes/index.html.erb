@@ -83,15 +83,16 @@
         <button><%= category.title %></button>
       <% end %>
     </div>
-    <div class="trending-categories">
-      <div class="four-categories">
-        <% @trending_categories.each do |category| %>
+    <div class="four-categories-card">
+      <% @trending_categories.each do |category| %>
+        <div class="category-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= category.photo_url %>');">
           <%= link_to category_show_path(title: category.title.downcase) do %>
-            <h2><%= category.title %></h2>
-            <img src="<%= category.photo_url %>" alt="<%= category.title %>">
+            <div class="text">
+              <h2><%= category.title %></h2>
+            </div>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
     <div class="explore-more">
       <h2>Explore More</h2>
