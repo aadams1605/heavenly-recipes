@@ -34,8 +34,8 @@ until existing_categories.size == 14 do
         meal_response = RestClient.get(meal_url)
         meal_info = JSON.parse(meal_response.body)['meals'].first
 
-        ingredients = (1..20).map { |i| meal_info["strIngredient#{i}"] }.compact
-        measures = (1..20).map { |i| meal_info["strMeasure#{i}"] }.compact
+        ingredients = (1..20).map { |i| meal_info["strIngredient#{i}"] }.compact.reject(&:empty?)
+        measures = (1..20).map { |i| meal_info["strMeasure#{i}"] }.compact.reject(&:empty?)
 
         Recipe.create(
           title: meal_data['strMeal'],

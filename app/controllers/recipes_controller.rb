@@ -16,6 +16,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    #@recipe.ingredients = @recipe.ingredients.split(',') if @recipe.ingredients.is_a?(String)
     @current_user_ratings_count = current_user.ratings.where(recipe_id: @recipe.id).count
     @total_ratings_count = @recipe.ratings.count
     @average_rating = @recipe.ratings.average(:value)
