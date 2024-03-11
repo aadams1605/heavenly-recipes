@@ -29,3 +29,42 @@
     width: 90%;
   }
 }*/
+
+.show-container {
+  display: flex;
+}
+
+.ingredients-measures-tables {
+  display: flex;
+}
+
+.recipe-ingredients-show, .recipe-measures-show {
+  width: 50%;
+}
+
+.recipe-ingredients-show li, .recipe-measures-show li {
+  list-style: none;
+  text-align: center;
+}
+
+.recipe-ingredients-show ul, .recipe-measures-show ul {
+  padding-left: 0;
+}
+
+.recipe-ingredients-show p, .recipe-measures-show p {
+  text-align: center;
+}
+
+.recipe-instructions-show {
+  padding: 20px;
+  height: 50%;
+}
+
+.recipe-instructions-show p {
+  margin-top: 40px;
+}
+
+.show-container, .recipe-show-details {
+  border: 1px solid black;
+  border-radius: 5px;
+}
