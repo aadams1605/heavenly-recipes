@@ -37,26 +37,27 @@
 
   <div class="recipe-show-details">
     <div class="recipe-instructions-show">
-      <p>Instructions: <%= @recipe.instructions %></p>
+      <p><b>Instructions:</b></p>
+      <p>
+        <%= @recipe.instructions %>
+      </p>
     </div>
     <div class="ingredients-measures-tables">
       <div class="recipe-ingredients-show">
-        <p><b>Ingredients:</b>
-          <ul>
-            <% eval(@recipe.ingredients).flatten.each do |ingredient| %>
-              <li><%= ingredient %></li>
-            <% end %>
-          </ul>
-        </p>
+        <p><b>Ingredients:</b></p>
+        <ul>
+          <% @recipe.ingredients.each do |ingredient| %>
+            <li><%= ingredient %></li>
+          <% end %>
+        </ul>
       </div>
       <div class="recipe-measures-show">
         <p><b>Measures:</b></p>
-          <ul>
-            <% eval(@recipe.measures).flatten.each do |measure| %>
-              <li><%= measure %></li>
-            <% end %>
-          </ul>
-        </p>
+        <ul>
+          <% @recipe.measures.each do |measure| %>
+            <li><%= measure %></li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
