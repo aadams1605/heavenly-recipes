@@ -3,24 +3,7 @@
     <div class="recipe-title">
       <h1><%= @recipe.title %></h1>
     </div>
-    <div class="recipe-image">
-      <img src="<%= @recipe.photo_url %>" alt="<%= @recipe.title %>">
-    </div>
-    <div class="favourites-link">
-      <%= link_to favourites_create_path(recipe: @recipe.id), data: {turbo_method: :post} do %>
-        <i class="fas fa-heart"></i>
-      <% end %>
-
-      <% if @average_rating == nil %>
-        <span> (<%= 0 %> / <%= @total_ratings_count %>) </span>
-      <% else %>
-        <span> (<%= "%.1f" % @average_rating %> / <%= @total_ratings_count %>) </span>
-      <% end %>
-
-      <% if @average_rating %>
-        <p>Your Rating: <%= "⭐️" * ((@average_rating * 2).round / 2.0) %></p>
-      <% end %>
-
+    <div class="show-rating-stars">
       <% unless @current_user_ratings_count > 0 %>
         <%= form_tag({ controller: "ratings", action: "create", recipe_id: @recipe.id }, method: :post, class: "star-form") do %>
           <div class="star-buttons-container">
@@ -31,6 +14,27 @@
             <% end %>
           </div>
         <% end %>
+      <% end %>
+    </div>
+    <div class="recipe-image">
+      <img src="<%= @recipe.photo_url %>" alt="<%= @recipe.title %>">
+    </div>
+
+    <div class="favourites-ratings-show">
+      <div class="favourites-link-show">
+        <%= link_to favourites_create_path(recipe: @recipe.id), data: {turbo_method: :post} do %>
+          <i class="fas fa-heart"></i>
+
+          <% if @average_rating == nil %>
+            <span> (<%= 0 %> / <%= @total_ratings_count %>) </span>
+          <% else %>
+            <span> (<%= "%.1f" % @average_rating %> / <%= @total_ratings_count %>) </span>
+          <% end %>
+        <% end %>
+      </div>
+
+      <% if @average_rating %>
+        <p>Your Rating: <%= "⭐️" * ((@average_rating * 2).round / 2.0) %></p>
       <% end %>
     </div>
   </div>
