@@ -1,11 +1,11 @@
 <div class="container">
   <% if params[:query].present? && !@no_results && @recipes.count > 1 %>
     <div class="search-results-number">
-      <span><%= @recipes.count %> Recipes for "<%= params[:query] %>"</span>
+      <span><%= @recipes.count %> recipes for "<%= params[:query] %>"</span>
     </div>
   <% elsif params[:query].present? && !@no_results && @recipes.count == 1 %>
     <div class="search-results-number">
-      <span><%= @recipes.count %> Recipe for "<%= params[:query] %>"</span>
+      <span><%= @recipes.count %> recipe for "<%= params[:query] %>"</span>
     </div>
   <% end %>
   <div class="latest-recipes">
@@ -18,9 +18,6 @@
             <div class="icons">
               <%= link_to favourites_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
                 <i class="fas fa-heart"></i>
-              <% end %>
-              <%= link_to ratings_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
-                <i class="fa-solid fa-star"></i>
               <% end %>
             </div>
             <%= link_to recipe_path(recipe[:id]) do %>
@@ -44,9 +41,6 @@
           <%= link_to favourites_create_path(recipe: @recipes[0].id), data: {turbo_method: :post} do %>
             <i class="fas fa-heart"></i>
           <% end %>
-          <%= link_to ratings_create_path(recipe: @recipes[0].id), data: {turbo_method: :post} do %>
-            <i class="fa-solid fa-star"></i>
-          <% end %>
         </div>
         <%= link_to recipe_path(@recipes[0][:id]) do %>
           <div class="text">
@@ -60,9 +54,6 @@
             <div class="icons">
               <%= link_to favourites_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
                 <i class="fas fa-heart"></i>
-              <% end %>
-              <%= link_to ratings_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
-                <i class="fa-solid fa-star"></i>
               <% end %>
             </div>
             <%= link_to recipe_path(recipe[:id]) do %>
