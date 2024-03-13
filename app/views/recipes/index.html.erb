@@ -17,7 +17,7 @@
           <div class="recipe-card small recipe-card search" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= recipe.photo_url %>');">
             <div class="icons">
               <%= link_to favourites_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
-                <i class="fas fa-heart"></i>
+                <i id="heartIcon" class="fas fa-heart"></i>
               <% end %>
             </div>
             <%= link_to recipe_path(recipe[:id]) do %>
@@ -39,7 +39,7 @@
       <div class="recipe-card large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @recipes[0].photo_url %>');">
         <div class="icons">
           <%= link_to favourites_create_path(recipe: @recipes[0].id), data: {turbo_method: :post} do %>
-            <i class="fas fa-heart"></i>
+            <i id="heartIcon" class="fas fa-heart"></i>
           <% end %>
         </div>
         <%= link_to recipe_path(@recipes[0][:id]) do %>
@@ -53,7 +53,7 @@
           <div class="recipe-card small" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= recipe.photo_url %>');">
             <div class="icons">
               <%= link_to favourites_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
-                <i class="fas fa-heart"></i>
+                <i id="heartIcon" class="fas fa-heart"></i>
               <% end %>
             </div>
             <%= link_to recipe_path(recipe[:id]) do %>

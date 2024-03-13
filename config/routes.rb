@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "/ratings", to: "ratings#index"
   get "/account", to: "accounts#show"
   get "/category/:title", to: "categories#show", as: "category_show"
+  get "/favourites/create", to: "favourites#create"
 
   post "/favourites/create", to: "favourites#create"
   post "/ratings/create", to: "ratings#create"

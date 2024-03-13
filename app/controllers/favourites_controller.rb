@@ -8,5 +8,10 @@ class FavouritesController < ApplicationController
   def create
     favourite = Favourite.new(user_id: current_user.id, recipe_id: params[:recipe])
     favourite.save
+
+    respond_to do |format|
+      format.html { head :no_content }
+      format.js   { head :no_content }
+    end
   end
 end
