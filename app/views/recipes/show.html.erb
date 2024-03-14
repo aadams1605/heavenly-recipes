@@ -44,22 +44,14 @@
       </p>
     </div>
     <div class="recipe-ingredients-measures">
-      <div class="recipe-ingredients">
-        <h2><b>Ingredients:</b></h2>
-        <ul>
-          <% @recipe.ingredients.each do |ingredient| %>
-            <li><%= ingredient %></li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="recipe-measures">
-        <h2><b>Measures:</b></h2>
-        <ul>
-          <% @recipe.measures.each do |measure| %>
-            <li><%= measure %></li>
-          <% end %>
-        </ul>
-      </div>
+      <h2><b>Ingredients:</b></h2>
+      <ul>
+        <% @recipe.ingredients.each_with_index do |ingredient, index| %>
+          <% capitalized_ingredient = ingredient.capitalize %>
+          <% capitalized_measure = @recipe.measures[index].capitalize %>
+          <li><%= "#{capitalized_ingredient} - #{capitalized_measure}" %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

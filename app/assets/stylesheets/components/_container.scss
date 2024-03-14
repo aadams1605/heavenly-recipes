@@ -65,20 +65,6 @@
   border-radius: 10px;
 }
 
-.recipe-instructions {
-  height: 50%;
-}
-
-.recipe-ingredients-measures {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 20px;
-}
-
-.recipe-ingredients, .recipe-measures {
-}
-
 .recipe-guide {
   display: flex;
   flex-direction: column;
@@ -86,6 +72,6 @@
   font-size: 13px;
 }
 
-.recipe-ingredients ul, .recipe-measures ul {
+.recipe-ingredients-measures ul {
   padding-left: 15px;
 }
