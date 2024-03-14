@@ -49,7 +49,11 @@
         <% @recipe.ingredients.each_with_index do |ingredient, index| %>
           <% capitalized_ingredient = ingredient.capitalize %>
           <% capitalized_measure = @recipe.measures[index].capitalize %>
-          <li><%= "#{capitalized_ingredient} - #{capitalized_measure}" %></li>
+          <% if capitalized_measure.present? %>
+            <li><%= "#{capitalized_ingredient} - #{capitalized_measure}" %></li>
+          <% else %>
+            <li><%= "#{capitalized_ingredient}" %></li>
+          <% end %>
         <% end %>
       </ul>
     </div>
