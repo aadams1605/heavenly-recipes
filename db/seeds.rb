@@ -34,16 +34,35 @@ until existing_categories.size == 14 do
         meal_response = RestClient.get(meal_url)
         meal_info = JSON.parse(meal_response.body)['meals'].first
 
-        ingredients = (1..20).map { |i| meal_info["strIngredient#{i}"] }.compact.reject(&:empty?)
-        measures = (1..20).map { |i| meal_info["strMeasure#{i}"] }.compact.reject { |m| m.empty? || m == " " }
+        ingredients = []
+        measures = []
+        ingredient_measure_pairs = []
+
+        (1..20).each do |i|
+          ingredient = meal_info["strIngredient#{i}"]
+          measure = meal_info["strMeasure#{i}"]
+
+          next if ingredient.nil? && measure.nil?
+          next if ingredient.to_s.strip.empty? && measure.to_s.strip.empty?
+
+          ingredient_index = ingredients.index(ingredient)
+
+          if ingredient_index
+            ingredient_measure_pairs[ingredient_index] = [ingredient, measure]
+          else
+            ingredients << ingredient
+            measures << measure
+            ingredient_measure_pairs << [ingredient, measure]
+          end
+        end
 
         Recipe.create(
           title: meal_data['strMeal'],
           instructions: meal_info['strInstructions'],
           photo_url: meal_data['strMealThumb'],
           category_id: category.id,
-          ingredients: ingredients,
-          measures: measures
+          ingredients: ingredient_measure_pairs.map(&:first),
+          measures: ingredient_measure_pairs.map(&:last)
         )
         #5.times do
          # Rating.create!(

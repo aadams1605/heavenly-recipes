@@ -1,27 +1,25 @@
-<div class="show-container">
-  <div class="recipe-image-title">
-    <div class="recipe-title">
-      <h1><%= @recipe.title %></h1>
-    </div>
-    <div class="show-rating-stars">
-      <% unless @current_user_ratings_count > 0 %>
-        <%= form_tag({ controller: "ratings", action: "create", recipe_id: @recipe.id }, method: :post, class: "star-form") do %>
-          <div class="star-buttons-container">
-            <% (1..5).each do |value| %>
-              <%= button_tag type: "submit", class: "star-button", name: "value", value: 6 - value do %>
-                <%= content_tag :i, "", class: "star-icon" %>
+<div class="recipe-show-container">
+  <div class="recipe-photo-title">
+    <div class="recipe-title-rating">
+      <div class="recipe-title">
+        <h1><%= @recipe.title %></h1>
+      </div>
+      <div class="recipe-rating">
+        <% unless @current_user_ratings_count > 0 %>
+          <%= form_tag({ controller: "ratings", action: "create", recipe_id: @recipe.id }, method: :post, class: "star-form") do %>
+            <div class="star-buttons-container">
+              <% (1..5).each do |value| %>
+                <%= button_tag type: "submit", class: "star-button", name: "value", value: 6 - value do %>
+                  <%= content_tag :i, "", class: "star-icon" %>
+                <% end %>
               <% end %>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
-    <div class="recipe-image">
-      <img src="<%= @recipe.photo_url %>" alt="<%= @recipe.title %>">
-    </div>
-
-    <div class="favourites-ratings-show">
-      <div class="favourites-link-show">
+    <div class="recipe-show-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @recipe.photo_url %>');">
+      <div class="recipe-favourite-rating">
         <%= link_to favourites_create_path(recipe: @recipe.id), data: {turbo_method: :post} do %>
           <i id="heartIcon" class="fas fa-heart"></i>
 
@@ -31,38 +29,33 @@
             <span> (<%= "%.1f" % @average_rating %> / <%= @total_ratings_count %>) </span>
           <% end %>
         <% end %>
-      </div>
 
-      <% if @average_rating %>
-        <p>Your Rating: <%= "⭐️" * ((@average_rating * 2).round / 2.0) %></p>
-      <% end %>
+          <% if @average_rating %>
+            <p>Your Rating: <%= "⭐️" * ((@average_rating * 2).round / 2.0) %></p>
+          <% end %>
+      </div>
     </div>
   </div>
-
-  <div class="recipe-show-details">
-    <div class="recipe-instructions-show">
-      <p><b>Instructions:</b></p>
+  <div class="recipe-guide">
+    <div class="recipe-instructions">
+      <h2><b>Instructions:</b></h2>
       <p>
         <%= @recipe.instructions %>
       </p>
     </div>
-    <div class="ingredients-measures-tables">
-      <div class="recipe-ingredients-show">
-        <p><b>Ingredients:</b></p>
-        <ul>
-          <% @recipe.ingredients.each do |ingredient| %>
-            <li><%= ingredient %></li>
+    <div class="recipe-ingredients-measures">
+      <h2><b>Ingredients:</b></h2>
+      <ul>
+        <% @recipe.ingredients.each_with_index do |ingredient, index| %>
+          <% capitalized_ingredient = ingredient.capitalize %>
+          <% capitalized_measure = @recipe.measures[index].capitalize %>
+          <% if capitalized_measure.present? %>
+            <li><%= "#{capitalized_ingredient} - #{capitalized_measure}" %></li>
+          <% else %>
+            <li><%= "#{capitalized_ingredient}" %></li>
           <% end %>
-        </ul>
-      </div>
-      <div class="recipe-measures-show">
-        <p><b>Measures:</b></p>
-        <ul>
-          <% @recipe.measures.each do |measure| %>
-            <li><%= measure %></li>
-          <% end %>
-        </ul>
-      </div>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
