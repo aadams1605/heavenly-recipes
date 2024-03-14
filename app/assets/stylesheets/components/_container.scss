@@ -31,14 +31,12 @@
 }*/
 
 .recipe-show-container {
-  height: 600px;
-  width: 600px;
   display: flex;
 }
 
 .recipe-photo-title, .recipe-guide {
   width: 50%;
-  margin: 10px;
+  margin: 20px;
 }
 
 .recipe-title-rating {
@@ -60,30 +58,34 @@
 .recipe-show-image {
   background-size: cover;
   background-position: center;
-  height:70%;
+  height: 70%;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  border-radius: 10px;
 }
 
 .recipe-instructions {
   height: 50%;
-  font-size: 13px;
-  padding: 5px;
 }
 
 .recipe-ingredients-measures {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  gap: 20px;
 }
 
 .recipe-ingredients, .recipe-measures {
-  width: 50%;
 }
 
 .recipe-guide {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  font-size: 13px;
+}
+
+.recipe-ingredients ul, .recipe-measures ul {
+  padding-left: 15px;
 }
