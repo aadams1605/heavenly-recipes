@@ -6,8 +6,8 @@ class FavouritesController < ApplicationController
 
     @average_ratings = {}
 
-    @favourite_recipes.each do |fav|
-      @average_ratings[fav.recipe.id] = fav.recipe.ratings.average(:value)
+    @favourite_recipes.each do |favourite|
+      @average_ratings[favourite.recipe.id] = favourite.recipe.ratings.average(:value)
     end
   end
 

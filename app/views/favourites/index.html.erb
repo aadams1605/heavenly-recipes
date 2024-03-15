@@ -11,6 +11,8 @@
     <div class="favourite-user-rating">
       <% if @average_ratings[favourite.recipe.id].present? %>
         <p>Your Rating: <%= "⭐️" * ((@average_ratings[favourite.recipe.id] * 2).round / 2.0) %></p>
+      <% else %>
+        <span>You haven't rated this recipe yet.</span>
       <% end %>
     </div>
   </div>
