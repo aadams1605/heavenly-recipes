@@ -52,7 +52,8 @@
 
 .recipe-rating {
   width: 50%;
-  text-align: center;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .recipe-show-image {
@@ -61,13 +62,22 @@
   height: 70%;
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: flex-start;
   border-radius: 10px;
-  border: 4px solid yellow;
 }
 
 .recipe-favourite-rating {
-  border: 4px solid green;
+  margin: 10px 10px 0px 0px;
+  color: white;
+
+  span {
+    color: white;
+    font-weight: bold;
+  }
+
+  .fas.fa-heart {
+    color: white;
+  }
 }
 
 .recipe-guide {
