@@ -3,6 +3,12 @@ class FavouritesController < ApplicationController
 
   def index
     @favourite_recipes = current_user.favourites
+
+    @average_ratings = {}
+
+    @favourite_recipes.each do |fav|
+      @average_ratings[fav.recipe.id] = fav.recipe.ratings.average(:value)
+    end
   end
 
   def create

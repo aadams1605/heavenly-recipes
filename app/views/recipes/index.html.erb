@@ -28,7 +28,7 @@
                 <% if recipe.ratings.average(:value) == nil %>
                   <span> (N/A) </span>
                 <% else %>
-                  <span> (<%= recipe.ratings.average(:value)%>) </span>
+                  <span> (<%= recipe.ratings.average(:value) %>) </span>
                 <% end %>
               </div>
             <% end %>
