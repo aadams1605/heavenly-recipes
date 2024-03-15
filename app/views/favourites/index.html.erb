@@ -1,11 +1,19 @@
 <h1>Your Favourite Recipes</h1>
 
 <% @favourite_recipes.each do |favourite| %>
-  <h1><%= favourite.recipe.title %></h1>
+  <div class="favourite-recipes">
+    <div class="favourite-recipe-title">
+      <h1><%= favourite.recipe.title %></h1>
+    </div>
+    <div class="favourite-recipe-photo">
+      <img src="<%= favourite.recipe.photo_url %>" alt="<%= favourite.recipe.title %>">
+    </div>
+    <div class="favourite-user-rating">
+      <% if @average_ratings[favourite.recipe.id].present? %>
+        <p>Your Rating: <%= "⭐️" * ((@average_ratings[favourite.recipe.id] * 2).round / 2.0) %></p>
+      <% else %>
+        <span>You haven't rated this recipe yet.</span>
+      <% end %>
+    </div>
+  </div>
 <% end %>
-
-<%# <div class="user-rating-value"> %>
-  <%# <% if @average_rating %> %>
-    <%# <p>Your Rating: <%= "⭐️" * ((@average_rating * 2).round / 2.0) %></p> %>
-  <%# <% end %> %>
-<%# </div> %>
