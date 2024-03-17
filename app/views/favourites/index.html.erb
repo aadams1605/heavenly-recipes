@@ -6,7 +6,9 @@
       <h1><%= favourite.recipe.title %></h1>
     </div>
     <div class="favourite-recipe-photo">
-      <img src="<%= favourite.recipe.photo_url %>" alt="<%= favourite.recipe.title %>">
+      <%= link_to favourite.recipe do %>
+        <img src="<%= favourite.recipe.photo_url %>" alt="<%= favourite.recipe.title %>">
+      <% end %>
     </div>
     <div class="favourite-user-rating">
       <% if @average_ratings[favourite.recipe.id].present? %>
