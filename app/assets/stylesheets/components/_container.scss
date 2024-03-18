@@ -40,20 +40,22 @@
   margin: 20px;
 }
 
-.average-show-rating{
+/*.average-show-rating{
   display: flex;
   align-items: center;
   font-weight: bold;
   font-size: 24px;
+}*/
+
+.recipe-rating, .recipe-title {
+  margin: 0 auto;
 }
 
-.recipe-header {
+.recipe-rating-info {
   display: flex;
-  justify-content: center;
-  gap: 50px;
-}
-
-.recipe-rating {
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2px;
   margin: 0 auto;
 }
 
@@ -86,12 +88,43 @@
   flex-direction: column;
   justify-content: space-between;
   font-size: 13px;
+  text-align: center;
 }
 
 .recipe-ingredients-measures ul {
   padding-left: 15px;
+  list-style: none;
 }
 
 .recipe-overall-details {
   display: flex;
+  margin-top: 10px;
+}
+
+
+.recipe-star-button {
+  width: auto;
+  height: auto;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.recipe-star-button::before {
+  content: "\2605";
+  font-size: 24px;
+  color: #888;
+  cursor: pointer;
+}
+
+.recipe-star-button:hover::before {
+  color: gold;
+}
+
+.recipe-gold-star::before {
+  color: gold;
+}
+
+.recipe-gold-star:hover::before {
+  color: gold;
 }

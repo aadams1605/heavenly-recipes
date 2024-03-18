@@ -1,15 +1,6 @@
 <div class="recipe-show-container">
-  <div class="recipe-header">
-    <div class="recipe-title">
-      <h1><%= @recipe.title %></h1>
-    </div>
-    <div class="average-show-rating">
-      <% if @average_rating == nil %>
-        <span><%= @total_ratings_count %> ratings</span>
-      <% else %>
-        <span><%= "%.1f" % @average_rating %> / <%= @total_ratings_count %> <%= @total_ratings_count == 1 ? 'rating' : 'ratings' %></span>
-      <% end %>
-    </div>
+  <div class="recipe-title">
+    <h1><%= @recipe.title %></h1>
   </div>
   <div class="recipe-rating">
     <% unless @current_user_ratings_count > 0 %>
@@ -35,11 +26,14 @@
       </div>
     </div>
     <div class="recipe-guide">
-      <div class="recipe-instructions">
-        <h2><b>Instructions :</b></h2>
-        <p>
-          <%= @recipe.instructions %>
-        </p>
+      <div class="recipe-rating-info">
+        <% if @average_rating == nil %>
+          <span class="recipe-star-button recipe-gold-star"></span>
+          <span> No ratings yet </span>
+        <% else %>
+          <span class="recipe-star-button recipe-gold-star"></span>
+          <span> (<%= @average_rating %>) (<%= @total_ratings_count %> <%= @total_ratings_count == 1 ? 'rating' : 'ratings' %>) </span>
+        <% end %>
       </div>
       <div class="recipe-ingredients-measures">
         <h2><b>Ingredients :</b></h2>
@@ -54,6 +48,12 @@
             <% end %>
           <% end %>
         </ul>
+      </div>
+      <div class="recipe-instructions">
+        <h2><b>Instructions :</b></h2>
+        <p>
+          <%= @recipe.instructions %>
+        </p>
       </div>
     </div>
   </div>
