@@ -32,6 +32,7 @@
 
 .recipe-show-container {
   display: flex;
+  flex-direction: column;
 }
 
 .recipe-photo-title, .recipe-guide {
@@ -39,26 +40,27 @@
   margin: 20px;
 }
 
-.recipe-title-rating {
+.average-show-rating{
   display: flex;
-  justify-content: center;
   align-items: center;
+  font-weight: bold;
+  font-size: 24px;
 }
 
-.recipe-title {
-  width: 50%;
+.recipe-header {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
 }
 
 .recipe-rating {
-  width: 50%;
-  display: flex;
-  justify-content: flex-end;
+  margin: 0 auto;
 }
 
 .recipe-show-image {
   background-size: cover;
   background-position: center;
-  height: 70%;
+  height: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
@@ -88,4 +90,8 @@
 
 .recipe-ingredients-measures ul {
   padding-left: 15px;
+}
+
+.recipe-overall-details {
+  display: flex;
 }
