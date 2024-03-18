@@ -8,9 +8,9 @@ class RatingsController < ApplicationController
     @rating = Rating.new(value: params[:value], recipe_id: @recipe.id, user_id: current_user.id)
 
       if @rating.save
-        redirect_to recipe_path(@recipe), notice: "Rating added successfully!"
+        redirect_to recipe_path(@recipe)
       else
-        redirect_to recipe_path(@recipe), alert: "Failed to add rating."
+        redirect_to recipe_path(@recipe)
       end
   end
 end

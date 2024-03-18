@@ -5,7 +5,7 @@
     </div>
     <div class="average-show-rating">
       <% if @average_rating == nil %>
-        <span><%= 0 %> / <%= @total_ratings_count %> ratings</span>
+        <span><%= @total_ratings_count %> ratings</span>
       <% else %>
         <span><%= "%.1f" % @average_rating %> / <%= @total_ratings_count %> <%= @total_ratings_count == 1 ? 'rating' : 'ratings' %></span>
       <% end %>
