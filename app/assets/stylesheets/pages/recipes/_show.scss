@@ -1,0 +1,90 @@
+.recipe-show-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-photo-title, .recipe-guide {
+  width: 50%;
+  margin: 20px;
+}
+
+.recipe-rating, .recipe-title {
+  margin: 0 auto;
+}
+
+.recipe-rating-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2px;
+  margin: 0 auto;
+}
+
+.recipe-show-image {
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  border-radius: 10px;
+}
+
+.recipe-favourite-rating {
+  margin: 10px 10px 0px 0px;
+  color: white;
+
+  span {
+    color: white;
+    font-weight: bold;
+  }
+
+  .fas.fa-heart {
+    color: white;
+  }
+}
+
+.recipe-guide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 13px;
+  text-align: center;
+
+  ul {
+    padding-left: 15px;
+    list-style: none;
+  }
+}
+
+.recipe-overall-details {
+  display: flex;
+  margin-top: 10px;
+}
+
+.recipe-star-button {
+  width: auto;
+  height: auto;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &::before {
+    content: "\2605";
+    font-size: 24px;
+    color: #888;
+    cursor: pointer;
+  }
+
+  &:hover::before {
+    color: gold;
+  }
+}
+
+.recipe-gold-star::before {
+  color: gold;
+
+  &:hover {
+    color: gold;
+  }
+}

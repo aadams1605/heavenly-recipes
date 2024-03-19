@@ -7,116 +7,65 @@ $container-width: 1300px;
   /*@media (max-width: $container-width){
     width: 90%;
   }*/
-}
 
-.latest-recipes {
-  display: flex;
-  gap: 20px;
-  height: 500px;
-  justify-content: center;
-}
-
-.two-card-recipe {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px 0;
-  height: 460px;
-  width: 30%;
-  margin: 20px 0;
-  gap: 15px;
-}
-
-.explore-more {
-  display: flex;
-}
-
-.recipe-show-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.recipe-photo-title, .recipe-guide {
-  width: 50%;
-  margin: 20px;
-}
-
-.recipe-rating, .recipe-title {
-  margin: 0 auto;
-}
-
-.recipe-rating-info {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 2px;
-  margin: 0 auto;
-}
-
-.recipe-show-image {
-  background-size: cover;
-  background-position: center;
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  border-radius: 10px;
-}
-
-.recipe-favourite-rating {
-  margin: 10px 10px 0px 0px;
-  color: white;
-
-  span {
-    color: white;
+  .search-results-number {
     font-weight: bold;
+    margin-top: 30px;
+
+    span {
+      display: inline-block;
+      margin-bottom: 25px;
+    }
   }
 
-  .fas.fa-heart {
-    color: white;
+  .latest-recipes {
+    display: flex;
+    gap: 20px;
+    height: 500px;
+    justify-content: center;
+
+    .search-results {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      flex-wrap: wrap;
+      gap: 50px;
+
+      .recipe-card.search {
+        width: 25%;
+        padding: 30px;
+      }
+
+      span {
+        color: white;
+        font-weight: bold;
+      }
+
+      .gold-star {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+      }
+
+      .rating-info {
+        position: absolute;
+        bottom: 14px;
+        left: 36px;
+      }
+    }
   }
-}
 
-.recipe-guide {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  font-size: 13px;
-  text-align: center;
-}
-
-.recipe-ingredients-measures ul {
-  padding-left: 15px;
-  list-style: none;
-}
-
-.recipe-overall-details {
-  display: flex;
-  margin-top: 10px;
-}
-
-.recipe-star-button {
-  width: auto;
-  height: auto;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-
-  &::before {
-    content: "\2605";
-    font-size: 24px;
-    color: #888;
-    cursor: pointer;
+  .two-card-recipe {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    height: 460px;
+    width: 30%;
+    gap: 15px;
   }
 
-  &:hover::before {
-    color: gold;
-  }
-}
-
-.recipe-gold-star::before {
-  color: gold;
-
-  &:hover {
-    color: gold;
+  .explore-more {
+    display: flex;
   }
 }
