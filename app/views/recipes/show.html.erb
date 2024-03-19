@@ -4,11 +4,10 @@
   </div>
   <div class="recipe-rating">
     <% unless @current_user_ratings_count > 0 %>
-      <%= form_tag({ controller: "ratings", action: "create", recipe_id: @recipe.id }, method: :post, class: "star-form") do %>
+      <%= form_tag({ controller: "ratings", action: "create", recipe_id: @recipe.id }, method: :post) do %>
         <div class="star-buttons-container">
           <% (1..5).each do |value| %>
             <%= button_tag type: "submit", class: "star-button", name: "value", value: 6 - value do %>
-              <%= content_tag :i, "", class: "star-icon" %>
             <% end %>
           <% end %>
         </div>
