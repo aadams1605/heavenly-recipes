@@ -1,13 +1,19 @@
+$container-width: 1300px;
+
 .container {
-  width: 1300px;
+  width: $container-width;
   margin: 0 auto;
+
+  /*@media (max-width: $container-width){
+    width: 90%;
+  }*/
 }
 
 .latest-recipes {
- display: flex;
- gap: 20px;
- height: 500px;
- justify-content: center;
+  display: flex;
+  gap: 20px;
+  height: 500px;
+  justify-content: center;
 }
 
 .two-card-recipe {
@@ -24,12 +30,6 @@
   display: flex;
 }
 
-/*@media (max-width: 1300px){
-  .container {
-    width: 90%;
-  }
-}*/
-
 .recipe-show-container {
   display: flex;
   flex-direction: column;
@@ -39,13 +39,6 @@
   width: 50%;
   margin: 20px;
 }
-
-/*.average-show-rating{
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-  font-size: 24px;
-}*/
 
 .recipe-rating, .recipe-title {
   margin: 0 auto;
@@ -101,30 +94,29 @@
   margin-top: 10px;
 }
 
-
 .recipe-star-button {
   width: auto;
   height: auto;
   border: none;
   background-color: transparent;
   cursor: pointer;
-}
 
-.recipe-star-button::before {
-  content: "\2605";
-  font-size: 24px;
-  color: #888;
-  cursor: pointer;
-}
+  &::before {
+    content: "\2605";
+    font-size: 24px;
+    color: #888;
+    cursor: pointer;
+  }
 
-.recipe-star-button:hover::before {
-  color: gold;
+  &:hover::before {
+    color: gold;
+  }
 }
 
 .recipe-gold-star::before {
   color: gold;
-}
 
-.recipe-gold-star:hover::before {
-  color: gold;
+  &:hover {
+    color: gold;
+  }
 }
