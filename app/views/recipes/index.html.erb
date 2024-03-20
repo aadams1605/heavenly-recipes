@@ -35,8 +35,10 @@
           </div>
         <% end %>
       </div>
+
+
     <% else %>
-      <div class="recipe-card large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @recipes[0].photo_url %>');">
+      <div class="large-recipe-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @recipes[0].photo_url %>');">
         <div class="icons">
           <%= link_to favourites_create_path(recipe: @recipes[0].id), data: {turbo_method: :post} do %>
             <i id="heartIcon" class="fas fa-heart"></i>
@@ -48,9 +50,9 @@
           </div>
         <% end %>
       </div>
-      <div class="two-card-recipe">
+      <div class="small-recipe-cards">
         <% @recipes[1..2].each do |recipe| %>
-          <div class="recipe-card small" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= recipe.photo_url %>');">
+          <div class="small-recipe-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= recipe.photo_url %>');">
             <div class="icons">
               <%= link_to favourites_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
                 <i id="heartIcon" class="fas fa-heart"></i>
@@ -66,7 +68,6 @@
       </div>
     <% end %>
   </div>
-
   <% unless params[:query].present? %>
     <div class="trending-categories">
       <div class="trending-category-header">
