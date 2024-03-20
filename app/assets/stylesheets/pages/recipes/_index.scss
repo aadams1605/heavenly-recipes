@@ -72,10 +72,6 @@ $container-width: 1300px;
     }
   }
 
-  .explore-more {
-    display: flex;
-  }
-
   .trending-categories {
     height: 500px;
   }
@@ -184,5 +180,69 @@ $container-width: 1300px;
       top: 15px;
       right: 15px;
     }
+  }
+
+  .explore-more {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .explore-more-header {
+    display: flex;
+    align-items: center;
+  }
+
+  .explore-more-panes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    height: 80%;
+    width: 100%;
+  }
+
+  .explore-more-heading {
+
+    h2{
+      color: black;
+    }
+  }
+
+  .explore-left-pane, .explore-right-pane {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+  }
+
+  .left-pane-card, .right-pane-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.222);
+    background-position: center;
+    background-size: cover;
+    z-index: 0;
+  }
+
+  .explore-centre-pane {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.222);
+    background-position: center;
+    background-size: cover;
+    z-index: 0;
+    height: 90%;
   }
 }
