@@ -98,6 +98,7 @@
         <h2>Explore More</h2>
       </div>
     </div>
+    <% if @explore_more.present? %>
     <div class="explore-more-panes">
       <div class="explore-left-pane">
         <% @explore_more[0..1].each do |category| %>
@@ -130,6 +131,7 @@
           </div>
         <% end %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
