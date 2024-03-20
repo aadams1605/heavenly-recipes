@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
     else
       @recipes = Recipe.all.shuffle.first(3)
       @trending_categories = Category.all.shuffle.first(4)
-      @explore_more = (Category.all - @trending_categories).shuffle.first(6)
+      @explore_more = (Category.all - @trending_categories).shuffle.first(5)
       @explore_more_buttons = (Category.all - @trending_categories).shuffle.first(4)
     end
 
