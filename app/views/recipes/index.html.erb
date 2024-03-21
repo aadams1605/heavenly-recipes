@@ -1,20 +1,20 @@
 <div class="container">
   <% if params[:query].present? && !@no_results && @recipes.count > 1 %>
-    <div class="search-results-number">
-      <span><%= @recipes.count %> recipes for "<%= params[:query] %>"</span>
+    <div class="index-search-results-number">
+      <span class="border"><%= @recipes.count %> recipes for "<%= params[:query] %>"</span>
     </div>
   <% elsif params[:query].present? && !@no_results && @recipes.count == 1 %>
-    <div class="search-results-number">
-      <span><%= @recipes.count %> recipe for "<%= params[:query] %>"</span>
+    <div class="index-search-results-number">
+      <span class="border"><%= @recipes.count %> recipe for "<%= params[:query] %>"</span>
     </div>
   <% end %>
   <div class="latest-recipes">
     <% if @no_results %>
-      <p>No Recipes Found</p>
+      <span>No Recipes Found</span>
     <% elsif params[:query].present? %>
-      <div class="search-results">
+      <div class="index-search-results">
         <% @recipes.each do |recipe| %>
-          <div class="recipe-card small recipe-card search" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= recipe.photo_url %>');">
+          <div class="small-recipe-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= recipe.photo_url %>');">
             <div class="icons">
               <%= link_to favourites_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
                 <i id="heartIcon" class="fas fa-heart"></i>
@@ -48,9 +48,9 @@
           </div>
         <% end %>
       </div>
-      <div class="small-recipe-cards">
+      <div class="small-index-recipe-cards">
         <% @recipes[1..2].each do |recipe| %>
-          <div class="small-recipe-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= recipe.photo_url %>');">
+          <div class="small-index-recipe-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= recipe.photo_url %>');">
             <div class="icons">
               <%= link_to favourites_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
                 <i id="heartIcon" class="fas fa-heart"></i>
@@ -70,7 +70,7 @@
     <div class="trending-categories">
       <div class="trending-category-header">
         <div class="trending-category-heading">
-          <h2>Trending Categories</h2>
+          <h2 class="border">Trending Categories</h2>
         </div>
         <div class="trending-category-buttons">
           <% @explore_more_buttons.each do |category| %>
@@ -93,7 +93,7 @@
     <div class="explore-more">
       <div class="explore-more-header">
         <div class="explore-more-heading">
-          <h2>Explore More</h2>
+          <h2 class="border">Explore More</h2>
         </div>
       </div>
       <div class="explore-more-panes">

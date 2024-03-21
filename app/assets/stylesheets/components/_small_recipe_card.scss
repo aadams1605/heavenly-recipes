@@ -1,4 +1,4 @@
-.recipe-card.small {
+.small-recipe-card {
   height: 230px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.222);
   border-radius: 10px;
@@ -10,15 +10,21 @@
   background-size: cover;
   flex-direction: column;
   position: relative;
+  width: 25%;
+  padding: 30px;
 
-  img{
-    height: 230px;
-    width: 300px;
-    object-fit: cover;
-    object-position: center;
-    z-index: 0;
-    border-radius: 10px;
-    filter: brightness(0.85);
+  .icons {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    .fas.fa-heart {
+      color: white;
+    }
+
+    .fas.fa-heart.clicked {
+      color: pink;
+    }
   }
 
   .text {
@@ -28,23 +34,15 @@
     text-align: center;
     white-space: normal;
     word-wrap: break-word;
+
+    h2 {
+      color: white;
+    }
   }
 
-  .icons {
+  .rating-info {
     position: absolute;
-    top: 15px;
-    right: 15px;
-  }
-
-  .fas.fa-heart {
-    color: white;
-  }
-
-  .fas.fa-heart.clicked {
-    color: pink;
-  }
-
-  h2 {
-    color: white;
+    bottom: 14px;
+    left: 36px;
   }
 }

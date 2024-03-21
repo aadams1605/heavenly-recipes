@@ -1,0 +1,49 @@
+$container-width: 1300px;
+
+.categories-container {
+  width: $container-width;
+  margin: 40px auto;
+
+  .category-search-results-number {
+    font-weight: bold;
+    margin-top: 30px;
+
+    .border {
+      border-bottom: 2px solid black;
+      width: 50%;
+      box-sizing: border-box;
+      padding: 10px 0px;
+    }
+
+    span {
+      display: inline-block;
+      margin-bottom: 30px;
+    }
+  }
+
+  .latest-categories {
+    display: flex;
+    gap: 20px;
+    height: 500px;
+
+    .category-search-results {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      flex-wrap: wrap;
+      gap: 50px;
+
+      span {
+        color: white;
+        font-weight: bold;
+      }
+
+      .gold-star {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+      }
+    }
+  }
+}

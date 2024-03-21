@@ -1,12 +1,31 @@
-<h2><%= @category.title.capitalize %> Recipes</h2>
+<div class="categories-container">
+  <div class="category-search-results-number">
+    <span class="border"><%= @category.title.capitalize %> Recipes</span>
+  </div>
+  <div class="latest-categories">
+    <div class="category-search-results">
+    <% @recipes.each do |recipe| %>
+      <div class="small-recipe-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= recipe.photo_url %>');">
+        <div class="icons">
+          <%= link_to favourites_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
+            <i id="heartIcon" class="fas fa-heart"></i>
+          <% end %>
+        </div>
+        <%= link_to recipe_path(recipe[:id]) do %>
+          <div class="text">
+            <h2><%= recipe.title %> <span class="star-button gold-star"></span></h2>
+          </div>
+          <div class="rating-info">
+            <% if recipe.ratings.average(:value) == nil %>
+              <span> (N/A) </span>
+            <% else %>
+              <span> (<%= recipe.ratings.average(:value) %>) </span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<% @recipes.each do |recipe| %>
-  <%= link_to recipe_path(recipe[:id]) do %>
-    <h1><%= recipe.title %></h1>
-    <img src="<%= recipe.photo_url %>" alt="<%= recipe.title %>">
-  <% end %>
-
-  <%= link_to favourites_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
-    <i id="heartIcon" class="fas fa-heart"></i>
-  <% end %>
-<% end %>
+</div>
