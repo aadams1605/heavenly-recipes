@@ -90,39 +90,26 @@
         <% end %>
       </div>
     </div>
-  <% end %>
-
-  <div class="explore-more">
-    <div class="explore-more-header">
-      <div class="explore-more-heading">
-        <h2>Explore More</h2>
+    <div class="explore-more">
+      <div class="explore-more-header">
+        <div class="explore-more-heading">
+          <h2>Explore More</h2>
+        </div>
       </div>
-    </div>
-    <% if @explore_more.present? %>
-    <div class="explore-more-panes">
-      <div class="explore-left-pane">
-        <% @explore_more[0..1].each do |category| %>
-          <div class="left-pane-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= category.photo_url %>');">
-            <%= link_to category_show_path(title: category.title.downcase) do %>
-              <div class="text">
-                <h2><%= category.title %></h2>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-      <% @explore_more[2..2].each do |category| %>
-        <div class="explore-centre-pane" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= category.photo_url %>');">
-          <%= link_to category_show_path(title: category.title.downcase) do %>
-            <div class="text">
-              <h2><%= category.title %></h2>
+      <div class="explore-more-panes">
+        <div class="explore-left-pane">
+          <% @explore_more[0..1].each do |category| %>
+            <div class="left-pane-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= category.photo_url %>');">
+              <%= link_to category_show_path(title: category.title.downcase) do %>
+                <div class="text">
+                  <h2><%= category.title %></h2>
+                </div>
+              <% end %>
             </div>
           <% end %>
         </div>
-      <% end %>
-      <div class="explore-right-pane">
-        <% @explore_more[3..4].each do |category| %>
-          <div class="right-pane-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= category.photo_url %>');">
+        <% @explore_more[2..2].each do |category| %>
+          <div class="explore-centre-pane" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= category.photo_url %>');">
             <%= link_to category_show_path(title: category.title.downcase) do %>
               <div class="text">
                 <h2><%= category.title %></h2>
@@ -130,8 +117,18 @@
             <% end %>
           </div>
         <% end %>
+        <div class="explore-right-pane">
+          <% @explore_more[3..4].each do |category| %>
+            <div class="right-pane-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= category.photo_url %>');">
+              <%= link_to category_show_path(title: category.title.downcase) do %>
+                <div class="text">
+                  <h2><%= category.title %></h2>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
-      <% end %>
     </div>
-  </div>
+  <% end %>
 </div>
