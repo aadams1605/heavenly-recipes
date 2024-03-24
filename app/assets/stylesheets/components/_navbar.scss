@@ -54,6 +54,8 @@
   .nav-link {
     margin-right: 50px;
     color: black;
+    font-weight: bold;
+    font-size: 12px;
   }
 
   .logout-link {
@@ -92,7 +94,7 @@
     height: 40px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     border: 1px solid #CCCCCC;
-    border-radius: 4px;
+    border-radius: 20px;
     width: 100%;
     padding: 0 0 0 15px;
     transition: border-color 0.3s ease;
