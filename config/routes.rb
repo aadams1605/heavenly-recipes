@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   post "/favourites/create", to: "favourites#create"
   post "/ratings/create", to: "ratings#create"
+  delete '/favourites/:id', to: 'favourites#destroy', as: :favourite
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
