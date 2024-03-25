@@ -2,6 +2,11 @@
 
 <% @favourite_recipes.each do |favourite| %>
   <div class="favourite-recipes">
+    <div class="icons">
+      <%= link_to favourites_destroy_path(recipe: @recipes.id), data: {turbo_method: :post} do %>
+        <i id="heartIcon" class="fas fa-heart"></i>
+      <% end %>
+    </div>
     <div class="favourite-recipe-title">
       <h1><%= favourite.recipe.title %></h1>
     </div>

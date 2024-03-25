@@ -16,4 +16,7 @@ class FavouritesController < ApplicationController
     #  format.js   { head :no_content }
  #   end
   end
+
+  def destroy
+  end
 end
