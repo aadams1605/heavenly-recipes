@@ -1,9 +1,9 @@
 <% if current_user.favourites.exists?(recipe_id: recipe.id) %>
-  <%= link_to favourites_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
+  <%= link_to favourites_create_path(recipe: recipe.id), data: { turbo_method: :post }, remote: true do %>
     <i class="fas fa-heart clicked"></i>
   <% end %>
 <% else %>
-    <%= link_to favourites_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
+  <%= link_to favourites_create_path(recipe: recipe.id), data: { turbo_method: :post }, remote: true do %>
     <i class="fas fa-heart"></i>
   <% end %>
 <% end %>

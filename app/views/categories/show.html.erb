@@ -8,7 +8,7 @@
       <div class="small-recipe-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= recipe.photo_url %>');">
         <div class="icons">
           <%= link_to favourites_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
-            <i id="heartIcon" class="fas fa-heart"></i>
+            <i class="fas fa-heart"></i>
           <% end %>
         </div>
         <%= link_to recipe_path(recipe[:id]) do %>
