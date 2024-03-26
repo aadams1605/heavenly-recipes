@@ -1,8 +1,7 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const heartIcon = document.getElementById('heartIcon');
+const heartIcons = document.querySelectorAll('.fas.fa-heart');
 
-  heartIcon.addEventListener('click', function() {
-    console.log("Heart icon clicked");
-    heartIcon.classList.toggle('clicked');
-  });
-});
+heartIcons.forEach((heartIcon) => {
+  heartIcon.addEventListener('click', (event) => {
+    event.currentTarget.classList.toggle('clicked')
+  })
+})
