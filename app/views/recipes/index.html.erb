@@ -16,15 +16,7 @@
         <% @recipes.each do |recipe| %>
           <div class="small-recipe-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= recipe.photo_url %>');">
             <div class="icons">
-              <% if current_user.favourites.exists?(recipe_id: recipe.id) %>
-                <%= link_to favourites_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
-                  <i class="fas fa-heart clicked"></i>
-                <% end %>
-              <% else %>
-                 <%= link_to favourites_create_path(recipe: recipe.id), data: {turbo_method: :post} do %>
-                  <i class="fas fa-heart"></i>
-                <% end %>
-              <% end %>
+              <%= render partial: 'heart_icon', locals: { recipe: recipe } %>
             </div>
             <%= link_to recipe_path(recipe[:id]) do %>
               <div class="text">
