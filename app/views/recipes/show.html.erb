@@ -18,9 +18,13 @@
     <div class="recipe-photo-title">
       <div class="recipe-show-image" style="background-image: url('<%= @recipe.photo_url %>');">
         <div class="recipe-favourite-rating">
+
           <%= link_to favourites_create_path(recipe: @recipe.id), data: {turbo_method: :post} do %>
-            <i id="heartIcon" class="fas fa-heart"></i>
+            <i class="fas fa-heart"></i>
           <% end %>
+
+
+
         </div>
       </div>
     </div>
