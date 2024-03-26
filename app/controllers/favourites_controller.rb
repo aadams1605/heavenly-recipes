@@ -7,13 +7,12 @@ class FavouritesController < ApplicationController
   end
 
   def create
-    favourite = Favourite.new(user_id: current_user.id, recipe_id: params[:recipe])
-    favourite.save
-
-  #  respond_to do |format|
-   #   format.html { head :no_content }
-    #  format.js   { head :no_content }
- #   end
+    if current_user.favourites.exists?(recipe_id: params[:recipe])
+      current_user.favourites.find_by(recipe_id: params[:recipe]).destroy
+    else
+      favourite = Favourite.new(user_id: current_user.id, recipe_id: params[:recipe])
+      favourite.save
+    end
   end
 
   def destroy
