@@ -17,7 +17,6 @@
   justify-content: flex-start;
   align-items: center;
   gap: 2px;
-  margin: 0 auto;
 }
 
 .recipe-show-image {
@@ -49,10 +48,10 @@
   flex-direction: column;
   justify-content: space-between;
   font-size: 13px;
-  text-align: center;
+  text-align: left;
 
   ul {
-    padding-left: 15px;
+    padding-left: 0px;
     list-style: none;
   }
 
