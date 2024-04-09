@@ -16,8 +16,14 @@
 
   <body>
     <%= render "shared/navbar" %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div data-controller="flash-message">
+      <% if flash[:notice].present? %>
+        <p class="notice" data-flash-message-target="message"><%= flash[:notice] %></p>
+      <% end %>
+      <% if flash[:alert].present? %>
+        <p class="alert" data-flash-message-target="message"><%= flash[:alert] %></p>
+      <% end %>
+    </div>
     <div class="container">
       <%= yield %>
     </div>

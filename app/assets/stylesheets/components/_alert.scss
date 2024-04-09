@@ -1,0 +1,23 @@
+.alert, .notice {
+  position: fixed;
+  bottom: 20px;
+  right: 12px;
+  z-index: 1000;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: opacity 3s;
+}
+
+.alert {
+  background-color: rgba(255, 0, 0, 0.648);
+}
+
+.notice {
+  background-color: #ee9c22b9;
+}
+
+.opacity-none {
+  opacity: 0;
+}
