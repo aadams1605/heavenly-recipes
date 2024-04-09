@@ -1,19 +1,4 @@
 <div class="recipe-show-container">
-  <div class="recipe-title">
-    <h1><%= @recipe.title %></h1>
-  </div>
-  <div class="recipe-rating">
-    <% unless @current_user_ratings_count > 0 %>
-      <%= form_tag({ controller: "ratings", action: "create", recipe_id: @recipe.id }, method: :post) do %>
-        <div class="star-buttons-container">
-          <% (1..5).each do |value| %>
-            <%= button_tag type: "submit", class: "star-button", name: "value", value: 6 - value do %>
-            <% end %>
-          <% end %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
   <div class="recipe-overall-details">
     <div class="recipe-photo-title">
       <div class="recipe-show-image" style="background-image: url('<%= @recipe.photo_url %>');">
@@ -25,6 +10,21 @@
       </div>
     </div>
     <div class="recipe-guide">
+      <div class="recipe-title">
+        <h1><%= @recipe.title %></h1>
+      </div>
+      <div class="recipe-rating">
+        <% unless @current_user_ratings_count > 0 %>
+          <%= form_tag({ controller: "ratings", action: "create", recipe_id: @recipe.id }, method: :post) do %>
+            <div class="star-buttons-container">
+              <% (1..5).each do |value| %>
+                <%= button_tag type: "submit", class: "star-button", name: "value", value: 6 - value do %>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
       <div class="recipe-rating-info">
         <% if @average_rating == nil %>
           <span class="recipe-star-button recipe-gold-star"></span>
