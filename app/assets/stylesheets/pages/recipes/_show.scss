@@ -8,10 +8,6 @@
   margin: 20px;
 }
 
-.recipe-rating, .recipe-title {
-  margin: 0 auto;
-}
-
 .recipe-rating-info {
   display: flex;
   justify-content: flex-start;
@@ -84,10 +80,28 @@
   }
 }
 
+button.star-button:last-child {
+  padding-left: 0px;
+}
+
 .recipe-gold-star::before {
   color: gold;
 
   &:hover {
     color: gold;
+  }
+}
+
+.recipe-rating {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px;
+}
+
+.recipe-title {
+
+  h1 {
+    margin: 0px;
   }
 }
