@@ -17,33 +17,75 @@ $container-width: 1300px;
 
     span {
       display: inline-block;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
   }
 
   .latest-categories {
     display: flex;
-    gap: 20px;
-    height: 500px;
+    justify-content: space-between;
+    align-items: space-around;
+    width: 100%;
+    gap: 50px;
+    flex-wrap: wrap;
 
-    .category-search-results {
+    .small-category-card {
+      height: 230px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.222);
+      border-radius: 10px;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      width: 100%;
-      flex-wrap: wrap;
-      gap: 50px;
+      justify-content: center;
+      z-index: 0;
+      background-position: center;
+      background-size: cover;
+      flex-direction: column;
+      position: relative;
+      width: 20%;
 
-      span {
-        color: white;
-        font-weight: bold;
-      }
-
-      .gold-star {
+      .icons {
         position: absolute;
-        bottom: 10px;
-        left: 10px;
+        top: 15px;
+        right: 15px;
+
+        .fas.fa-heart {
+          color: white;
+        }
+
+        .fas.fa-heart.clicked {
+          color: red;
+        }
       }
+
+      .text {
+        padding: 15px;
+        z-index: 2;
+        text-shadow: 2px 2px 10px black;
+        text-align: center;
+        white-space: normal;
+        word-wrap: break-word;
+
+        h2 {
+          color: white;
+        }
+      }
+
+      .rating-info {
+        position: absolute;
+        bottom: 14px;
+        left: 36px;
+      }
+
+    span {
+      color: white;
+      font-weight: bold;
+    }
+
+    .gold-star {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
     }
   }
+}
 }
