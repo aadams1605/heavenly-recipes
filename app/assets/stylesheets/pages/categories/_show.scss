@@ -23,8 +23,8 @@ $container-width: 1300px;
 
   .latest-categories {
     display: flex;
-    justify-content: space-between;
-    align-items: space-around;
+    justify-content: flex-start;
+    align-items: flex-start;
     width: 100%;
     gap: 50px;
     flex-wrap: wrap;
